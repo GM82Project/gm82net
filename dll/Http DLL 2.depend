@@ -1,0 +1,103 @@
+# depslib dependency file v1.0
+1388262309 source:c:\users\hex\desktop\c++\buffer.cpp
+	"Buffer.h"
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<new>
+	<algorithm>
+	"Hash.h"
+	"StringConversion.h"
+	"zlib.h"
+
+1619389777 c:\users\hex\desktop\c++\buffer.h
+	<cstddef>
+	<stdint.h>
+	<string>
+
+1388262310 c:\users\hex\desktop\c++\hash.h
+	<stdint.h>
+
+1388262310 c:\users\hex\desktop\c++\stringconversion.h
+	<string>
+
+1388262310 c:\users\hex\desktop\c++\zlib.h
+	"zconf.h"
+
+1388262310 c:\users\hex\desktop\c++\zconf.h
+	<windows.h>
+	<limits.h>
+	<sys/types.h>
+	<stddef.h>
+	<unistd.h>
+	<unixio.h>
+
+1388262309 source:c:\users\hex\desktop\c++\gm.cpp
+	"gm.h"
+
+1388262309 c:\users\hex\desktop\c++\gm.h
+	"Hash.h"
+	"Buffer.h"
+	"Socket.h"
+	"HttpRequest.h"
+	<limits>
+	<cstring>
+	<float.h>
+	<stdint.h>
+	<map>
+	<string>
+
+1388262310 c:\users\hex\desktop\c++\socket.h
+	"Buffer.h"
+	<winsock2.h>
+	<ws2tcpip.h>
+	<string>
+
+1388262310 c:\users\hex\desktop\c++\httprequest.h
+	"Socket.h"
+	<string>
+	<vector>
+
+1388262310 source:c:\users\hex\desktop\c++\gm_hash.cpp
+	"gm.h"
+	"StringConversion.h"
+
+1388262310 source:c:\users\hex\desktop\c++\gm_httprequest.cpp
+	"gm.h"
+
+1388262310 source:c:\users\hex\desktop\c++\gm_listeningsocket.cpp
+	"gm.h"
+
+1388262310 source:c:\users\hex\desktop\c++\gm_socket.cpp
+	"gm.h"
+
+1388262310 source:c:\users\hex\desktop\c++\gm_udpsocket.cpp
+	"gm.h"
+
+1388262309 source:c:\users\hex\desktop\c++\gm_buffer.cpp
+	"gm.h"
+
+1388262310 source:c:\users\hex\desktop\c++\hash.cpp
+	"Hash.h"
+	<cstdio>
+	<cstdlib>
+	<cstring>
+
+1388262310 source:c:\users\hex\desktop\c++\httprequest.cpp
+	"HttpRequest.h"
+	"StringConversion.h"
+	<cassert>
+	<cstring>
+	<cstdlib>
+	<ctime>
+
+1388262310 source:c:\users\hex\desktop\c++\socket.cpp
+	"Socket.h"
+	"StringConversion.h"
+	<cassert>
+	<new>
+
+1388262310 source:c:\users\hex\desktop\c++\stringconversion.cpp
+	"StringConversion.h"
+	<climits>
+
