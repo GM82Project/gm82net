@@ -38,6 +38,7 @@
 			</Target>
 		</Build>
 		<Linker>
+			<Add option="-static" />
 			<Add option="-L." />
 			<Add library="user32" />
 			<Add library="ws2_32" />
