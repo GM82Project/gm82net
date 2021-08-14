@@ -402,6 +402,7 @@ void Buffer::WriteString(const char* str) {
 		unsigned int p = length;
 		SetLength(length + len);
 		memcpy(data + p, str, len);
+        pos += len;
 	}
 }
 
