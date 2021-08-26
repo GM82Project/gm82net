@@ -19,6 +19,9 @@
  * along with Http Dll 2. If not, see <http://www.gnu.org/licenses/>.
  */
 
+// visual studio stuff
+#define NOMINMAX
+
 #include "Socket.h"
 
 #include "StringConversion.h"

@@ -385,3 +385,44 @@ gmexport double buffer_write_buffer_part(double id, double id2, double pos, doub
 	b->WriteBufferPart(b2, gm_cast<unsigned int>(pos), gm_cast<unsigned int>(len));
 	return 1;
 }
+
+gmexport double buffer_get_address(double id, double asrealpointer) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if (b == NULL) return 0;
+
+	if (gm_cast<bool>(asrealpointer)) {
+		// realpointer aka packed pointer (safe)
+		double retval = 0.0;
+		*reinterpret_cast<char**>(&retval) = b->GetData();
+		return retval;
+	}
+	else {
+		// cast pointer to double (UNSAFE!)
+		// this is what window_handle() and get_function_address() in native GM do.
+		return (double)((uintptr_t)b->GetData());
+	}
+}
+
+static char ptrstringbuf[32];
+
+gmexport const char* buffer_get_address_string(double id, double ashexstring) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if (b == NULL) return 0;
+
+	// clear the buffer
+	memset(&ptrstringbuf, 0, sizeof(ptrstringbuf));
+
+	// get pointer as an unsigned pointer int.
+	uintptr_t val = (uintptr_t)b->GetData();
+
+	if (gm_cast<bool>(ashexstring)) {
+		// as a hex string
+		snprintf(ptrstringbuf, sizeof(ptrstringbuf) - 1, "%" PRIxPTR, val);
+	}
+	else {
+		// uintptr_t to string
+		snprintf(ptrstringbuf, sizeof(ptrstringbuf) - 1, "%" PRIuPTR, val);
+	}
+
+	return ptrstringbuf;
+}
