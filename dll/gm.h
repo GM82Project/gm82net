@@ -21,6 +21,9 @@
 
 #pragma once
 
+// visual studio stuff
+#define NOMINMAX
+
 #include "Hash.h"
 #include "Buffer.h"
 #include "Socket.h"
@@ -32,6 +35,7 @@
 #include <stdint.h>
 #include <map>
 #include <string>
+#include <cinttypes>
 
 // function exported to Game Maker
 #define gmexport extern "C" __declspec (dllexport)

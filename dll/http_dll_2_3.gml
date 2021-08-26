@@ -132,391 +132,399 @@ global.define_httprequest_get_message_body_length = external_define(dllfile,'htt
 global.define_httprequest_get_message_body_buffer = external_define(dllfile,'httprequest_get_message_body_buffer',dll_cdecl,ty_real,2,ty_real,ty_real);
 global.define_httprequest_urlencode = external_define(dllfile,'httprequest_urlencode',dll_cdecl,ty_string,2,ty_string,ty_real);
 global.define_httprequest_urldecode = external_define(dllfile,'httprequest_urldecode',dll_cdecl,ty_string,1,ty_string);
+global.define_buffer_get_address = external_define(dllfile,'buffer_get_address',dll_cdecl,ty_real,2,ty_real,ty_real);
+global.define_buffer_get_address_string = external_define(dllfile,'buffer_get_address_string',dll_cdecl,ty_string,2,ty_real,ty_real);
 
 #define buffer_create
 // buffer_create()
-external_call(global.define_buffer_create);
+return external_call(global.define_buffer_create);
 #define buffer_destroy
 // buffer_destroy(id)
-external_call(global.define_buffer_destroy,argument0);
+return external_call(global.define_buffer_destroy,argument0);
 #define buffer_exists
 // buffer_exists(id)
-external_call(global.define_buffer_exists,argument0);
+return external_call(global.define_buffer_exists,argument0);
 #define buffer_to_string
 // buffer_to_string(id)
-external_call(global.define_buffer_to_string,argument0);
+return external_call(global.define_buffer_to_string,argument0);
 #define buffer_get_pos
 // buffer_get_pos(id)
-external_call(global.define_buffer_get_pos,argument0);
+return external_call(global.define_buffer_get_pos,argument0);
 #define buffer_get_length
 // buffer_get_length(id)
-external_call(global.define_buffer_get_length,argument0);
+return external_call(global.define_buffer_get_length,argument0);
 #define buffer_at_end
 // buffer_at_end(id)
-external_call(global.define_buffer_at_end,argument0);
+return external_call(global.define_buffer_at_end,argument0);
 #define buffer_get_error
 // buffer_get_error(id)
-external_call(global.define_buffer_get_error,argument0);
+return external_call(global.define_buffer_get_error,argument0);
 #define buffer_clear_error
 // buffer_clear_error(id)
-external_call(global.define_buffer_clear_error,argument0);
+return external_call(global.define_buffer_clear_error,argument0);
 #define buffer_clear
 // buffer_clear(id)
-external_call(global.define_buffer_clear,argument0);
+return external_call(global.define_buffer_clear,argument0);
 #define buffer_set_pos
 // buffer_set_pos(id,pos)
-external_call(global.define_buffer_set_pos,argument0,argument1);
+return external_call(global.define_buffer_set_pos,argument0,argument1);
 #define buffer_read_from_file
 // buffer_read_from_file(id,filename)
-external_call(global.define_buffer_read_from_file,argument0,argument1);
+return external_call(global.define_buffer_read_from_file,argument0,argument1);
 #define buffer_read_from_file_part
 // buffer_read_from_file_part(id,filename,pos,len)
-external_call(global.define_buffer_read_from_file_part,argument0,argument1,argument2,argument3);
+return external_call(global.define_buffer_read_from_file_part,argument0,argument1,argument2,argument3);
 #define buffer_write_to_file
 // buffer_write_to_file(id,filename)
-external_call(global.define_buffer_write_to_file,argument0,argument1);
+return external_call(global.define_buffer_write_to_file,argument0,argument1);
 #define buffer_append_to_file
 // buffer_append_to_file(id,filename)
-external_call(global.define_buffer_append_to_file,argument0,argument1);
+return external_call(global.define_buffer_append_to_file,argument0,argument1);
 #define buffer_rc4_crypt
 // buffer_rc4_crypt(id,key)
-external_call(global.define_buffer_rc4_crypt,argument0,argument1);
+return external_call(global.define_buffer_rc4_crypt,argument0,argument1);
 #define buffer_rc4_crypt_buffer
 // buffer_rc4_crypt_buffer(id,id2)
-external_call(global.define_buffer_rc4_crypt_buffer,argument0,argument1);
+return external_call(global.define_buffer_rc4_crypt_buffer,argument0,argument1);
 #define buffer_zlib_compress
 // buffer_zlib_compress(id)
-external_call(global.define_buffer_zlib_compress,argument0);
+return external_call(global.define_buffer_zlib_compress,argument0);
 #define buffer_zlib_uncompress
 // buffer_zlib_uncompress(id)
-external_call(global.define_buffer_zlib_uncompress,argument0);
+return external_call(global.define_buffer_zlib_uncompress,argument0);
 #define buffer_read_int8
 // buffer_read_int8(id)
-external_call(global.define_buffer_read_int8,argument0);
+return external_call(global.define_buffer_read_int8,argument0);
 #define buffer_read_uint8
 // buffer_read_uint8(id)
-external_call(global.define_buffer_read_uint8,argument0);
+return external_call(global.define_buffer_read_uint8,argument0);
 #define buffer_read_int16
 // buffer_read_int16(id)
-external_call(global.define_buffer_read_int16,argument0);
+return external_call(global.define_buffer_read_int16,argument0);
 #define buffer_read_uint16
 // buffer_read_uint16(id)
-external_call(global.define_buffer_read_uint16,argument0);
+return external_call(global.define_buffer_read_uint16,argument0);
 #define buffer_read_int32
 // buffer_read_int32(id)
-external_call(global.define_buffer_read_int32,argument0);
+return external_call(global.define_buffer_read_int32,argument0);
 #define buffer_read_uint32
 // buffer_read_uint32(id)
-external_call(global.define_buffer_read_uint32,argument0);
+return external_call(global.define_buffer_read_uint32,argument0);
 #define buffer_read_int64
 // buffer_read_int64(id)
-external_call(global.define_buffer_read_int64,argument0);
+return external_call(global.define_buffer_read_int64,argument0);
 #define buffer_read_uint64
 // buffer_read_uint64(id)
-external_call(global.define_buffer_read_uint64,argument0);
+return external_call(global.define_buffer_read_uint64,argument0);
 #define buffer_read_intv
 // buffer_read_intv(id)
-external_call(global.define_buffer_read_intv,argument0);
+return external_call(global.define_buffer_read_intv,argument0);
 #define buffer_read_uintv
 // buffer_read_uintv(id)
-external_call(global.define_buffer_read_uintv,argument0);
+return external_call(global.define_buffer_read_uintv,argument0);
 #define buffer_read_float32
 // buffer_read_float32(id)
-external_call(global.define_buffer_read_float32,argument0);
+return external_call(global.define_buffer_read_float32,argument0);
 #define buffer_read_float64
 // buffer_read_float64(id)
-external_call(global.define_buffer_read_float64,argument0);
+return external_call(global.define_buffer_read_float64,argument0);
 #define buffer_write_int8
 // buffer_write_int8(id,value)
-external_call(global.define_buffer_write_int8,argument0,argument1);
+return external_call(global.define_buffer_write_int8,argument0,argument1);
 #define buffer_write_uint8
 // buffer_write_uint8(id,value)
-external_call(global.define_buffer_write_uint8,argument0,argument1);
+return external_call(global.define_buffer_write_uint8,argument0,argument1);
 #define buffer_write_int16
 // buffer_write_int16(id,value)
-external_call(global.define_buffer_write_int16,argument0,argument1);
+return external_call(global.define_buffer_write_int16,argument0,argument1);
 #define buffer_write_uint16
 // buffer_write_uint16(id,value)
-external_call(global.define_buffer_write_uint16,argument0,argument1);
+return external_call(global.define_buffer_write_uint16,argument0,argument1);
 #define buffer_write_int32
 // buffer_write_int32(id,value)
-external_call(global.define_buffer_write_int32,argument0,argument1);
+return external_call(global.define_buffer_write_int32,argument0,argument1);
 #define buffer_write_uint32
 // buffer_write_uint32(id,value)
-external_call(global.define_buffer_write_uint32,argument0,argument1);
+return external_call(global.define_buffer_write_uint32,argument0,argument1);
 #define buffer_write_int64
 // buffer_write_int64(id,value)
-external_call(global.define_buffer_write_int64,argument0,argument1);
+return external_call(global.define_buffer_write_int64,argument0,argument1);
 #define buffer_write_uint64
 // buffer_write_uint64(id,value)
-external_call(global.define_buffer_write_uint64,argument0,argument1);
+return external_call(global.define_buffer_write_uint64,argument0,argument1);
 #define buffer_write_intv
 // buffer_write_intv(id,value)
-external_call(global.define_buffer_write_intv,argument0,argument1);
+return external_call(global.define_buffer_write_intv,argument0,argument1);
 #define buffer_write_uintv
 // buffer_write_uintv(id,value)
-external_call(global.define_buffer_write_uintv,argument0,argument1);
+return external_call(global.define_buffer_write_uintv,argument0,argument1);
 #define buffer_write_float32
 // buffer_write_float32(id,value)
-external_call(global.define_buffer_write_float32,argument0,argument1);
+return external_call(global.define_buffer_write_float32,argument0,argument1);
 #define buffer_write_float64
 // buffer_write_float64(id,value)
-external_call(global.define_buffer_write_float64,argument0,argument1);
+return external_call(global.define_buffer_write_float64,argument0,argument1);
 #define buffer_read_string
 // buffer_read_string(id)
-external_call(global.define_buffer_read_string,argument0);
+return external_call(global.define_buffer_read_string,argument0);
 #define buffer_write_string
 // buffer_write_string(id,string)
-external_call(global.define_buffer_write_string,argument0,argument1);
+return external_call(global.define_buffer_write_string,argument0,argument1);
 #define buffer_read_data
 // buffer_read_data(id,len)
-external_call(global.define_buffer_read_data,argument0,argument1);
+return external_call(global.define_buffer_read_data,argument0,argument1);
 #define buffer_write_data
 // buffer_write_data(id,string)
-external_call(global.define_buffer_write_data,argument0,argument1);
+return external_call(global.define_buffer_write_data,argument0,argument1);
 #define buffer_read_hex
 // buffer_read_hex(id,len)
-external_call(global.define_buffer_read_hex,argument0,argument1);
+return external_call(global.define_buffer_read_hex,argument0,argument1);
 #define buffer_write_hex
 // buffer_write_hex(id,string)
-external_call(global.define_buffer_write_hex,argument0,argument1);
+return external_call(global.define_buffer_write_hex,argument0,argument1);
 #define buffer_read_base64
 // buffer_read_base64(id,len)
-external_call(global.define_buffer_read_base64,argument0,argument1);
+return external_call(global.define_buffer_read_base64,argument0,argument1);
 #define buffer_write_base64
 // buffer_write_base64(id,string)
-external_call(global.define_buffer_write_base64,argument0,argument1);
+return external_call(global.define_buffer_write_base64,argument0,argument1);
 #define buffer_write_buffer
 // buffer_write_buffer(id,id2)
-external_call(global.define_buffer_write_buffer,argument0,argument1);
+return external_call(global.define_buffer_write_buffer,argument0,argument1);
 #define buffer_write_buffer_part
 // buffer_write_buffer_part(id,id2,pos,len)
-external_call(global.define_buffer_write_buffer_part,argument0,argument1,argument2,argument3);
+return external_call(global.define_buffer_write_buffer_part,argument0,argument1,argument2,argument3);
 #define md5_begin
 // md5_begin()
-external_call(global.define_md5_begin);
+return external_call(global.define_md5_begin);
 #define md5_end
 // md5_end()
-external_call(global.define_md5_end);
+return external_call(global.define_md5_end);
 #define md5_read_file
 // md5_read_file(filename)
-external_call(global.define_md5_read_file,argument0);
+return external_call(global.define_md5_read_file,argument0);
 #define md5_read_string
 // md5_read_string(string)
-external_call(global.define_md5_read_string,argument0);
+return external_call(global.define_md5_read_string,argument0);
 #define md5_read_buffer
 // md5_read_buffer(id)
-external_call(global.define_md5_read_buffer,argument0);
+return external_call(global.define_md5_read_buffer,argument0);
 #define md5_read_buffer_part
 // md5_read_buffer_part(id,pos,len)
-external_call(global.define_md5_read_buffer_part,argument0,argument1,argument2);
+return external_call(global.define_md5_read_buffer_part,argument0,argument1,argument2);
 #define md5_result
 // md5_result()
-external_call(global.define_md5_result);
+return external_call(global.define_md5_result);
 #define sha1_begin
 // sha1_begin()
-external_call(global.define_sha1_begin);
+return external_call(global.define_sha1_begin);
 #define sha1_end
 // sha1_end()
-external_call(global.define_sha1_end);
+return external_call(global.define_sha1_end);
 #define sha1_read_file
 // sha1_read_file(filename)
-external_call(global.define_sha1_read_file,argument0);
+return external_call(global.define_sha1_read_file,argument0);
 #define sha1_read_string
 // sha1_read_string(string)
-external_call(global.define_sha1_read_string,argument0);
+return external_call(global.define_sha1_read_string,argument0);
 #define sha1_read_buffer
 // sha1_read_buffer(id)
-external_call(global.define_sha1_read_buffer,argument0);
+return external_call(global.define_sha1_read_buffer,argument0);
 #define sha1_read_buffer_part
 // sha1_read_buffer_part(id,pos,len)
-external_call(global.define_sha1_read_buffer_part,argument0,argument1,argument2);
+return external_call(global.define_sha1_read_buffer_part,argument0,argument1,argument2);
 #define sha1_result
 // sha1_result()
-external_call(global.define_sha1_result);
+return external_call(global.define_sha1_result);
 #define listeningsocket_create
 // listeningsocket_create()
-external_call(global.define_listeningsocket_create);
+return external_call(global.define_listeningsocket_create);
 #define listeningsocket_destroy
 // listeningsocket_destroy(id)
-external_call(global.define_listeningsocket_destroy,argument0);
+return external_call(global.define_listeningsocket_destroy,argument0);
 #define listeningsocket_exists
 // listeningsocket_exists(id)
-external_call(global.define_listeningsocket_exists,argument0);
+return external_call(global.define_listeningsocket_exists,argument0);
 #define listeningsocket_is_listening
 // listeningsocket_is_listening(id)
-external_call(global.define_listeningsocket_is_listening,argument0);
+return external_call(global.define_listeningsocket_is_listening,argument0);
 #define listeningsocket_start_listening
 // listeningsocket_start_listening(id,ipv6,port,local)
-external_call(global.define_listeningsocket_start_listening,argument0,argument1,argument2,argument3);
+return external_call(global.define_listeningsocket_start_listening,argument0,argument1,argument2,argument3);
 #define listeningsocket_stop_listening
 // listeningsocket_stop_listening(id)
-external_call(global.define_listeningsocket_stop_listening,argument0);
+return external_call(global.define_listeningsocket_stop_listening,argument0);
 #define listeningsocket_can_accept
 // listeningsocket_can_accept(id)
-external_call(global.define_listeningsocket_can_accept,argument0);
+return external_call(global.define_listeningsocket_can_accept,argument0);
 #define listeningsocket_accept
 // listeningsocket_accept(id,socket_id)
-external_call(global.define_listeningsocket_accept,argument0,argument1);
+return external_call(global.define_listeningsocket_accept,argument0,argument1);
 #define socket_create
 // socket_create()
-external_call(global.define_socket_create);
+return external_call(global.define_socket_create);
 #define socket_destroy
 // socket_destroy(id)
-external_call(global.define_socket_destroy,argument0);
+return external_call(global.define_socket_destroy,argument0);
 #define socket_exists
 // socket_exists(id)
-external_call(global.define_socket_exists,argument0);
+return external_call(global.define_socket_exists,argument0);
 #define socket_get_state
 // socket_get_state(id)
-external_call(global.define_socket_get_state,argument0);
+return external_call(global.define_socket_get_state,argument0);
 #define socket_reset
 // socket_reset(id)
-external_call(global.define_socket_reset,argument0);
+return external_call(global.define_socket_reset,argument0);
 #define socket_connect
 // socket_connect(id,address,port)
-external_call(global.define_socket_connect,argument0,argument1,argument2);
+return external_call(global.define_socket_connect,argument0,argument1,argument2);
 #define socket_update_read
 // socket_update_read(id)
-external_call(global.define_socket_update_read,argument0);
+return external_call(global.define_socket_update_read,argument0);
 #define socket_update_write
 // socket_update_write(id)
-external_call(global.define_socket_update_write,argument0);
+return external_call(global.define_socket_update_write,argument0);
 #define socket_shut_down
 // socket_shut_down(id)
-external_call(global.define_socket_shut_down,argument0);
+return external_call(global.define_socket_shut_down,argument0);
 #define socket_get_peer_address
 // socket_get_peer_address(id)
-external_call(global.define_socket_get_peer_address,argument0);
+return external_call(global.define_socket_get_peer_address,argument0);
 #define socket_read_data
 // socket_read_data(id,buffer_id,bytes)
-external_call(global.define_socket_read_data,argument0,argument1,argument2);
+return external_call(global.define_socket_read_data,argument0,argument1,argument2);
 #define socket_write_data
 // socket_write_data(id,buffer_id)
-external_call(global.define_socket_write_data,argument0,argument1);
+return external_call(global.define_socket_write_data,argument0,argument1);
 #define socket_read_message
 // socket_read_message(id,buffer_id)
-external_call(global.define_socket_read_message,argument0,argument1);
+return external_call(global.define_socket_read_message,argument0,argument1);
 #define socket_write_message
 // socket_write_message(id,buffer_id)
-external_call(global.define_socket_write_message,argument0,argument1);
+return external_call(global.define_socket_write_message,argument0,argument1);
 #define socket_read_message_delimiter
 // socket_read_message_delimiter(id,buffer_id,delimiter)
-external_call(global.define_socket_read_message_delimiter,argument0,argument1,argument2);
+return external_call(global.define_socket_read_message_delimiter,argument0,argument1,argument2);
 #define socket_write_message_delimiter
 // socket_write_message_delimiter(id,buffer_id,delimiter)
-external_call(global.define_socket_write_message_delimiter,argument0,argument1,argument2);
+return external_call(global.define_socket_write_message_delimiter,argument0,argument1,argument2);
 #define socket_get_read_data_length
 // socket_get_read_data_length(id)
-external_call(global.define_socket_get_read_data_length,argument0);
+return external_call(global.define_socket_get_read_data_length,argument0);
 #define socket_get_write_data_length
 // socket_get_write_data_length(id)
-external_call(global.define_socket_get_write_data_length,argument0);
+return external_call(global.define_socket_get_write_data_length,argument0);
 #define udpsocket_create
 // udpsocket_create()
-external_call(global.define_udpsocket_create);
+return external_call(global.define_udpsocket_create);
 #define udpsocket_destroy
 // udpsocket_destroy(id)
-external_call(global.define_udpsocket_destroy,argument0);
+return external_call(global.define_udpsocket_destroy,argument0);
 #define udpsocket_exists
 // udpsocket_exists(id)
-external_call(global.define_udpsocket_exists,argument0);
+return external_call(global.define_udpsocket_exists,argument0);
 #define udpsocket_get_state
 // udpsocket_get_state(id)
-external_call(global.define_udpsocket_get_state,argument0);
+return external_call(global.define_udpsocket_get_state,argument0);
 #define udpsocket_reset
 // udpsocket_reset(id)
-external_call(global.define_udpsocket_reset,argument0);
+return external_call(global.define_udpsocket_reset,argument0);
 #define udpsocket_start
 // udpsocket_start(id,ipv6,port)
-external_call(global.define_udpsocket_start,argument0,argument1,argument2);
+return external_call(global.define_udpsocket_start,argument0,argument1,argument2);
 #define udpsocket_set_destination
 // udpsocket_set_destination(id,address,port)
-external_call(global.define_udpsocket_set_destination,argument0,argument1,argument2);
+return external_call(global.define_udpsocket_set_destination,argument0,argument1,argument2);
 #define udpsocket_receive
 // udpsocket_receive(id,buffer_id)
-external_call(global.define_udpsocket_receive,argument0,argument1);
+return external_call(global.define_udpsocket_receive,argument0,argument1);
 #define udpsocket_send
 // udpsocket_send(id,buffer_id)
-external_call(global.define_udpsocket_send,argument0,argument1);
+return external_call(global.define_udpsocket_send,argument0,argument1);
 #define udpsocket_get_last_address
 // udpsocket_get_last_address(id)
-external_call(global.define_udpsocket_get_last_address,argument0);
+return external_call(global.define_udpsocket_get_last_address,argument0);
 #define udpsocket_get_last_port
 // udpsocket_get_last_port(id)
-external_call(global.define_udpsocket_get_last_port,argument0);
+return external_call(global.define_udpsocket_get_last_port,argument0);
 #define udpsocket_get_max_message_size
 // udpsocket_get_max_message_size(id)
-external_call(global.define_udpsocket_get_max_message_size,argument0);
+return external_call(global.define_udpsocket_get_max_message_size,argument0);
 #define httprequest_create
 // httprequest_create()
-external_call(global.define_httprequest_create);
+return external_call(global.define_httprequest_create);
 #define httprequest_destroy
 // httprequest_destroy(id)
-external_call(global.define_httprequest_destroy,argument0);
+return external_call(global.define_httprequest_destroy,argument0);
 #define httprequest_exists
 // httprequest_exists(id)
-external_call(global.define_httprequest_exists,argument0);
+return external_call(global.define_httprequest_exists,argument0);
 #define httprequest_get_state
 // httprequest_get_state(id)
-external_call(global.define_httprequest_get_state,argument0);
+return external_call(global.define_httprequest_get_state,argument0);
 #define httprequest_set_request_header
 // httprequest_set_request_header(id,name,value,replace)
-external_call(global.define_httprequest_set_request_header,argument0,argument1,argument2,argument3);
+return external_call(global.define_httprequest_set_request_header,argument0,argument1,argument2,argument3);
 #define httprequest_remove_request_header
 // httprequest_remove_request_header(id,name)
-external_call(global.define_httprequest_remove_request_header,argument0,argument1);
+return external_call(global.define_httprequest_remove_request_header,argument0,argument1);
 #define httprequest_clear_request_headers
 // httprequest_clear_request_headers(id)
-external_call(global.define_httprequest_clear_request_headers,argument0);
+return external_call(global.define_httprequest_clear_request_headers,argument0);
 #define httprequest_set_post_parameter
 // httprequest_set_post_parameter(id,name,value)
-external_call(global.define_httprequest_set_post_parameter,argument0,argument1,argument2);
+return external_call(global.define_httprequest_set_post_parameter,argument0,argument1,argument2);
 #define httprequest_set_post_parameter_file
 // httprequest_set_post_parameter_file(id,name,filename,buffer_id)
-external_call(global.define_httprequest_set_post_parameter_file,argument0,argument1,argument2,argument3);
+return external_call(global.define_httprequest_set_post_parameter_file,argument0,argument1,argument2,argument3);
 #define httprequest_remove_post_parameter
 // httprequest_remove_post_parameter(id,name)
-external_call(global.define_httprequest_remove_post_parameter,argument0,argument1);
+return external_call(global.define_httprequest_remove_post_parameter,argument0,argument1);
 #define httprequest_clear_post_parameters
 // httprequest_clear_post_parameters(id)
-external_call(global.define_httprequest_clear_post_parameters,argument0);
+return external_call(global.define_httprequest_clear_post_parameters,argument0);
 #define httprequest_reset
 // httprequest_reset(id)
-external_call(global.define_httprequest_reset,argument0);
+return external_call(global.define_httprequest_reset,argument0);
 #define httprequest_connect
 // httprequest_connect(id,url,post)
-external_call(global.define_httprequest_connect,argument0,argument1,argument2);
+return external_call(global.define_httprequest_connect,argument0,argument1,argument2);
 #define httprequest_update
 // httprequest_update(id)
-external_call(global.define_httprequest_update,argument0);
+return external_call(global.define_httprequest_update,argument0);
 #define httprequest_get_status_code
 // httprequest_get_status_code(id)
-external_call(global.define_httprequest_get_status_code,argument0);
+return external_call(global.define_httprequest_get_status_code,argument0);
 #define httprequest_get_response_header_count
 // httprequest_get_response_header_count(id)
-external_call(global.define_httprequest_get_response_header_count,argument0);
+return external_call(global.define_httprequest_get_response_header_count,argument0);
 #define httprequest_get_response_header_name
 // httprequest_get_response_header_name(id,index)
-external_call(global.define_httprequest_get_response_header_name,argument0,argument1);
+return external_call(global.define_httprequest_get_response_header_name,argument0,argument1);
 #define httprequest_get_response_header_value
 // httprequest_get_response_header_value(id,index)
-external_call(global.define_httprequest_get_response_header_value,argument0,argument1);
+return external_call(global.define_httprequest_get_response_header_value,argument0,argument1);
 #define httprequest_find_response_header
 // httprequest_find_response_header(id,name)
-external_call(global.define_httprequest_find_response_header,argument0,argument1);
+return external_call(global.define_httprequest_find_response_header,argument0,argument1);
 #define httprequest_get_message_body
 // httprequest_get_message_body(id)
-external_call(global.define_httprequest_get_message_body,argument0);
+return external_call(global.define_httprequest_get_message_body,argument0);
 #define httprequest_get_message_body_length
 // httprequest_get_message_body_length(id)
-external_call(global.define_httprequest_get_message_body_length,argument0);
+return external_call(global.define_httprequest_get_message_body_length,argument0);
 #define httprequest_get_message_body_buffer
 // httprequest_get_message_body_buffer(id,buffer_id)
-external_call(global.define_httprequest_get_message_body_buffer,argument0,argument1);
+return external_call(global.define_httprequest_get_message_body_buffer,argument0,argument1);
 #define httprequest_urlencode
 // httprequest_urlencode(string,keepspecialchars)
-external_call(global.define_httprequest_urlencode,argument0,argument1);
+return external_call(global.define_httprequest_urlencode,argument0,argument1);
 #define httprequest_urldecode
 // httprequest_urldecode(string)
-external_call(global.define_httprequest_urldecode,argument0);
+return external_call(global.define_httprequest_urldecode,argument0);
+#define buffer_get_address
+// buffer_get_address(id,asrealpointer)
+return external_call(global.define_buffer_get_address,argument0,argument1);
+#define buffer_get_address_string
+// buffer_get_address_string(id,ashexstring)
+return external_call(global.define_buffer_get_address_string,argument0,argument1);
