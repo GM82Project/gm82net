@@ -28,6 +28,13 @@
 #include <cstdlib>
 #include <ctime>
 
+/* warning C4996: 'memicmp': The POSIX name for this item is deprecated. */
+#ifdef _MSC_VER
+#define HTTP_memicmp _memicmp
+#else /* Proper Compiler */
+#define HTTP_memicmp memicmp
+#endif
+
 struct HttpRequest_RNG {
 	HttpRequest_RNG() {
 		srand(clock());
@@ -48,7 +55,7 @@ struct HttpRequest_UrlEncodeTable {
 
 bool caseinsensitive_equal(const std::string& a, const std::string& b) {
 	if(a.length() != b.length()) return false;
-	return (memicmp(a.data(), b.data(), a.length()) == 0);
+	return (HTTP_memicmp(a.data(), b.data(), a.length()) == 0);
 }
 
 std::string HttpRequest::UrlEncode(const std::string& str, bool keepspecialchars) {

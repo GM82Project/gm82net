@@ -192,13 +192,13 @@ gmexport double buffer_read_uint32(double id) {
 gmexport double buffer_read_int64(double id) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
-	return b->ReadType<int64_t>();
+	return (double)(b->ReadType<int64_t>());
 }
 
 gmexport double buffer_read_uint64(double id) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
-	return b->ReadType<uint64_t>();
+	return (double)(b->ReadType<uint64_t>());
 }
 
 gmexport double buffer_read_intv(double id) {
@@ -392,9 +392,10 @@ gmexport double buffer_get_address(double id, double asrealpointer) {
 
 	if (gm_cast<bool>(asrealpointer)) {
 		// realpointer aka packed pointer (safe)
-		double retval = 0.0;
-		*reinterpret_cast<char**>(&retval) = b->GetData();
-		return retval;
+		static_assert((sizeof(double) >= sizeof(char*)), "realpointer size check fail.");
+		double vv = 0.0;
+		*reinterpret_cast<char**>(&vv) = b->GetData();
+		return vv;
 	}
 	else {
 		// cast pointer to double (UNSAFE!)
