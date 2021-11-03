@@ -57,13 +57,27 @@ std::string SockAddrToString(sockaddr* addr) {
 		
 		// IPv6
 		const char *hextable = "0123456789abcdef";
-		for(unsigned int j = 8; j > 0; ) {
+		// find span
+		int span_start = -1;
+		int span_end = -1;
+		for (unsigned int j = 0; j < 8; ) {
+			unsigned int i = ((uint16_t*)(&((sockaddr_in6*)(addr))->sin6_addr))[j++];
+			if (span_start == -1 && i == 0) {
+				span_start = j;
+			} else if (i != 0 && span_start != -1 && span_end == -1) {
+				span_end = j;
+				break;
+			}
+		}
+		// actual encoding
+		for(int j = 8; j > 0; ) {
 			unsigned int i = ((uint16_t*)(&((sockaddr_in6*)(addr))->sin6_addr))[--j];
-			*(--ptr) = hextable[i & 15];
-			*(--ptr) = hextable[(i >> 4) & 15];
-			*(--ptr) = hextable[(i >> 8) & 15];
-			*(--ptr) = hextable[(i >> 12) & 15];
-			if(j != 0) *(--ptr) = ':';
+			if (j+1 == span_start || (j+1 == span_end && span_end == 8)) *(--ptr) = ':';
+			else if (j+1 < span_start || j+1 >= span_end) {
+				i = (i >> 8) | ((i & 255) << 8);
+				do { *(--ptr) = hextable[i & 15]; } while ((i >>= 4) != 0);
+				if (j != 0) *(--ptr) = ':';
+			}
 		}
 		
 	}
