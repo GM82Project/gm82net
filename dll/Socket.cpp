@@ -614,6 +614,9 @@ void UDPSocket::Start(bool ipv6, unsigned int port) {
 		getsockopt(s, SOL_SOCKET, SO_MAX_MSG_SIZE, (char*)(&maxmessagesize), &size);
 	}
 	
+	// save ipv6
+	this->ipv6 = ipv6;
+	
 	// make the socket nonblocking
 	SOCKET_MAKENONBLOCKING(s);
 	state = state_started;
@@ -625,7 +628,7 @@ void UDPSocket::SetDestination(std::string address, unsigned int port) {
 	// initialize addrinfo hints
 	addrinfo hints;
 	memset(&hints, 0, sizeof(hints));
-	hints.ai_family = AF_UNSPEC;
+	hints.ai_family = (ipv6)? AF_INET6 : AF_INET;
 	hints.ai_socktype = SOCK_DGRAM;
 	hints.ai_protocol = IPPROTO_UDP;
 	
