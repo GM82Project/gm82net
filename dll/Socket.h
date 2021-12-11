@@ -136,6 +136,7 @@ class UDPSocket {
 	SOCKET s;
 	unsigned int maxmessagesize;
 	sockaddr_in6 destination_sockaddr, last_sockaddr;
+	bool ipv6;
 	
 	public:
 	UDPSocket();

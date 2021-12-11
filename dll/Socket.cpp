@@ -57,29 +57,41 @@ std::string SockAddrToString(sockaddr* addr) {
 		
 		// IPv6
 		const char *hextable = "0123456789abcdef";
-		// find span
-		int span_start = -1;
-		int span_end = -1;
-		for (unsigned int j = 0; j < 8; ) {
-			unsigned int i = ((uint16_t*)(&((sockaddr_in6*)(addr))->sin6_addr))[j++];
-			if (span_start == -1 && i == 0) {
-				span_start = j;
-			} else if (i != 0 && span_start != -1 && span_end == -1) {
-				span_end = j;
-				break;
+		// find leftmost longest span of zeroes longer than 1
+		int span_start = -1; // inclusive
+		int span_end = -1; // exclusive
+		{
+			int current_span_start = -1;
+			for (unsigned int j = 0; j <= 8; j++) {
+				// artificially put a 1 after the ip to simplify logic
+				unsigned int i;
+				if (j != 8)
+					i = ((uint16_t*)(&((sockaddr_in6*)(addr))->sin6_addr))[j];
+				else
+					i = 1;
+				if (current_span_start == -1 && i == 0) {
+					current_span_start = j;
+				} else if (i != 0 && current_span_start != -1) {
+					int span_len = j - current_span_start;
+					if (span_len > 1 && span_len > span_end - span_start) {
+						span_start = current_span_start;
+						span_end = j;
+					}
+					current_span_start = -1;
+				}
 			}
 		}
 		// actual encoding
 		for(int j = 8; j > 0; ) {
 			unsigned int i = ((uint16_t*)(&((sockaddr_in6*)(addr))->sin6_addr))[--j];
-			if (j+1 == span_start || (j+1 == span_end && span_end == 8)) *(--ptr) = ':';
-			else if (j+1 < span_start || j+1 >= span_end) {
+			// manually put : if at start of span or if at end and span goes to end
+			if (j == span_start || (j+1 == span_end && span_end == 8)) *(--ptr) = ':';
+			else if (j < span_start || j >= span_end) {
 				i = (i >> 8) | ((i & 255) << 8);
 				do { *(--ptr) = hextable[i & 15]; } while ((i >>= 4) != 0);
 				if (j != 0) *(--ptr) = ':';
 			}
 		}
-		
 	}
 	
 	return std::string(ptr, buffer + sizeof(buffer) - ptr);
@@ -602,6 +614,9 @@ void UDPSocket::Start(bool ipv6, unsigned int port) {
 		getsockopt(s, SOL_SOCKET, SO_MAX_MSG_SIZE, (char*)(&maxmessagesize), &size);
 	}
 	
+	// save ipv6
+	this->ipv6 = ipv6;
+	
 	// make the socket nonblocking
 	SOCKET_MAKENONBLOCKING(s);
 	state = state_started;
@@ -613,7 +628,7 @@ void UDPSocket::SetDestination(std::string address, unsigned int port) {
 	// initialize addrinfo hints
 	addrinfo hints;
 	memset(&hints, 0, sizeof(hints));
-	hints.ai_family = AF_UNSPEC;
+	hints.ai_family = (ipv6)? AF_INET6 : AF_INET;
 	hints.ai_socktype = SOCK_DGRAM;
 	hints.ai_protocol = IPPROTO_UDP;
 	
