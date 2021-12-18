@@ -1,4 +1,3 @@
 @echo off
 
-rd /S /Q vs\Release\
-rd /S /Q vs\Debug\
+rmdir /s /q build

@@ -1,4 +1,5 @@
+build
 *.gex
 *.dll
 todo.txt
-!dll/zlib*.dll
+!lib/zlib*.dll
