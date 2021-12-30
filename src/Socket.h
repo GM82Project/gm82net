@@ -148,6 +148,9 @@ class UDPSocket {
 	bool Receive(Buffer *b);
 	void Send(Buffer *b);
 	
+	unsigned int GetTTL();
+	void SetTTL(unsigned int ttl);
+	
 	std::string GetLastAddress();
 	unsigned int GetLastPort();
 	unsigned int GetMaxMessageSize();

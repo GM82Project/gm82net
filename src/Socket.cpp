@@ -689,6 +689,17 @@ void UDPSocket::Send(Buffer *b) {
 	
 }
 
+unsigned int UDPSocket::GetTTL() {
+	unsigned int ttl;
+	int len = sizeof(ttl);
+	getsockopt(s, IPPROTO_IP, IP_TTL, (char*)(&ttl), &len);
+	return ttl;
+}
+
+void UDPSocket::SetTTL(unsigned int ttl) {
+	setsockopt(s, IPPROTO_IP, IP_TTL, (char*)(&ttl), sizeof(ttl));
+}
+
 std::string UDPSocket::GetLastAddress() {
 	return SockAddrToString((sockaddr*)(&last_sockaddr));
 }

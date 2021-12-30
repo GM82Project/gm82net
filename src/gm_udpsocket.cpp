@@ -106,6 +106,19 @@ gmexport double udpsocket_get_last_port(double id) {
 	return s->GetLastPort();
 }
 
+gmexport double udpsocket_get_ttl(double id) {
+	UDPSocket *s = gmdata.FindUDPSocket(gm_cast<unsigned int>(id));
+	if(s == NULL) return 0;
+	return s->GetTTL();
+}
+
+gmexport double udpsocket_set_ttl(double id, double ttl) {
+	UDPSocket *s = gmdata.FindUDPSocket(gm_cast<unsigned int>(id));
+	if(s == NULL) return 0;
+	s->SetTTL(gm_cast<unsigned int>(ttl));
+	return 1;
+}
+
 gmexport double udpsocket_get_max_message_size(double id) {
 	UDPSocket *s = gmdata.FindUDPSocket(gm_cast<unsigned int>(id));
 	if(s == NULL) return 0;
