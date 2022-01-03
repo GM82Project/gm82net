@@ -660,8 +660,14 @@ bool UDPSocket::Receive(Buffer *b) {
 	int size = sizeof(last_sockaddr);
 	int result = recvfrom(s, b->GetData(), b->GetLength(), 0, (sockaddr*)(&last_sockaddr), &size);
 	if(result == SOCKET_ERROR) {
-		if(WSAGetLastError() == WSAEWOULDBLOCK) {
+		int error = WSAGetLastError();
+		if(error == WSAEWOULDBLOCK) {
 			// nothing to receive
+			b->Clear();
+			return false;
+		}
+		if(error == WSAECONNRESET) {
+			// TODO better error handling
 			b->Clear();
 			return false;
 		}
