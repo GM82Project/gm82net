@@ -1,5 +1,7 @@
 @echo off
 
+call "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\VsDevCmd.bat"
+
 where /q msbuild
 if errorlevel 1 (
 	echo You need to run this from a MSVC command prompt.
