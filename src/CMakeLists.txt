@@ -16,3 +16,4 @@ set(SRCS gm.cpp
 add_definitions(-DZLIB_WINAPI)
 add_library(gm82net SHARED ${SRCS})
 target_link_libraries(gm82net Ws2_32 "${PROJECT_SOURCE_DIR}/lib/zlibwapi.lib")
+set_property(TARGET gm82net PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded")
