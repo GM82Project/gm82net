@@ -2,4 +2,3 @@ build
 *.gex
 *.dll
 todo.txt
-!lib/zlib*.dll
