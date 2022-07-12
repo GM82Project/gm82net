@@ -13,7 +13,26 @@ set(SRCS gm.cpp
 		 StringConversion.cpp
 )
 
-#add_definitions(-DZLIB_WINAPI)
 add_library(gm82net SHARED ${SRCS})
+
 target_link_libraries(gm82net Ws2_32 "${PROJECT_SOURCE_DIR}/lib/zlibstatic.lib")
-#set_property(TARGET gm82net PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded")
+
+option(INSTALL_GEX "Install the generated .gex" OFF)
+
+if (INSTALL_GEX)
+	add_custom_command(
+		TARGET gm82net
+		POST_BUILD
+		COMMAND py build_gex.py gm82net.gej
+		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+		COMMENT "Building .gex"
+	)
+else()
+	add_custom_command(
+		TARGET gm82net
+		POST_BUILD
+		COMMAND py build_gex.py gm82net.gej --noinstall
+		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+		COMMENT "Building .gex"
+	)
+endif()

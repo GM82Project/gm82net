@@ -1,0 +1,1613 @@
+{
+	"name": "Game Maker 8.2 Network",
+	"folder": "gm82",
+	"version": "1.2",
+	"author": "Maarten Baert, renex, nik and floogle",
+	"date": "23/02/2022",
+	"license": "Free to use, also for commercial games.",
+	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes buffer, networking, hash and crypto functions.",
+	"helpfile": "",
+	"hidden": false,
+	"dependencies": [],
+	"files": [
+		{
+			"filename": "gm82net.dll",
+			"origname": "build\\src\\Release\\gm82net.dll",
+			"kind": 1,
+			"init": "",
+			"final": "",
+			"functions": [
+				{
+					"name": "buffer_create",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_create()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_destroy",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_destroy(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_exists",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_exists(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_to_string",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_to_string(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "buffer_get_pos",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_get_pos(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_get_size",
+					"extname": "buffer_get_length",
+					"calltype": 12,
+					"helpline": "buffer_get_size(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_at_end",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_at_end(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_get_error",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_get_error(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_clear_error",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_clear_error(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_clear",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_clear(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_set_pos",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_set_pos(id,pos)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_load",
+					"extname": "buffer_read_from_file",
+					"calltype": 12,
+					"helpline": "buffer_load(id,filename)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_load_part",
+					"extname": "buffer_read_from_file_part",
+					"calltype": 12,
+					"helpline": "buffer_load_part(id,filename,pos,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_save",
+					"extname": "buffer_write_to_file",
+					"calltype": 12,
+					"helpline": "buffer_save(id,filename)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_save_append",
+					"extname": "buffer_append_to_file",
+					"calltype": 12,
+					"helpline": "buffer_save_append(id,filename)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_rc4",
+					"extname": "buffer_rc4_crypt",
+					"calltype": 12,
+					"helpline": "buffer_rc4(id,key)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_rc4_buffer",
+					"extname": "buffer_rc4_crypt_buffer",
+					"calltype": 12,
+					"helpline": "buffer_rc4_buffer(id,idkey)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_deflate",
+					"extname": "buffer_zlib_compress",
+					"calltype": 12,
+					"helpline": "buffer_deflate(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_inflate",
+					"extname": "buffer_zlib_uncompress",
+					"calltype": 12,
+					"helpline": "buffer_inflate(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_i8",
+					"extname": "buffer_read_int8",
+					"calltype": 12,
+					"helpline": "buffer_read_i8(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_u8",
+					"extname": "buffer_read_uint8",
+					"calltype": 12,
+					"helpline": "buffer_read_u8(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_i16",
+					"extname": "buffer_read_int16",
+					"calltype": 12,
+					"helpline": "buffer_read_i16(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_u16",
+					"extname": "buffer_read_uint16",
+					"calltype": 12,
+					"helpline": "buffer_read_u16(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_i32",
+					"extname": "buffer_read_int32",
+					"calltype": 12,
+					"helpline": "buffer_read_i32(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_u32",
+					"extname": "buffer_read_uint32",
+					"calltype": 12,
+					"helpline": "buffer_read_u32(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_i64",
+					"extname": "buffer_read_int64",
+					"calltype": 12,
+					"helpline": "buffer_read_i64(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_u64",
+					"extname": "buffer_read_uint64",
+					"calltype": 12,
+					"helpline": "buffer_read_u64(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_int",
+					"extname": "buffer_read_intv",
+					"calltype": 12,
+					"helpline": "buffer_read_int(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_uint",
+					"extname": "buffer_read_uintv",
+					"calltype": 12,
+					"helpline": "buffer_read_uint(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_float",
+					"extname": "buffer_read_float32",
+					"calltype": 12,
+					"helpline": "buffer_read_float(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_double",
+					"extname": "buffer_read_float64",
+					"calltype": 12,
+					"helpline": "buffer_read_double(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_i8",
+					"extname": "buffer_write_int8",
+					"calltype": 12,
+					"helpline": "buffer_write_i8(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_u8",
+					"extname": "buffer_write_uint8",
+					"calltype": 12,
+					"helpline": "buffer_write_u8(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_i16",
+					"extname": "buffer_write_int16",
+					"calltype": 12,
+					"helpline": "buffer_write_i16(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_u16",
+					"extname": "buffer_write_uint16",
+					"calltype": 12,
+					"helpline": "buffer_write_u16(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_i32",
+					"extname": "buffer_write_int32",
+					"calltype": 12,
+					"helpline": "buffer_write_i32(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_u32",
+					"extname": "buffer_write_uint32",
+					"calltype": 12,
+					"helpline": "buffer_write_u32(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_i64",
+					"extname": "buffer_write_int64",
+					"calltype": 12,
+					"helpline": "buffer_write_i64(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_u64",
+					"extname": "buffer_write_uint64",
+					"calltype": 12,
+					"helpline": "buffer_write_u64(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_int",
+					"extname": "buffer_write_intv",
+					"calltype": 12,
+					"helpline": "buffer_write_int(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_uint",
+					"extname": "buffer_write_uintv",
+					"calltype": 12,
+					"helpline": "buffer_write_uint(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_float",
+					"extname": "buffer_write_float32",
+					"calltype": 12,
+					"helpline": "buffer_write_float(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_double",
+					"extname": "buffer_write_float64",
+					"calltype": 12,
+					"helpline": "buffer_write_double(id,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_string",
+					"extname": "buffer_read_string",
+					"calltype": 12,
+					"helpline": "buffer_read_string(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "buffer_write_string",
+					"extname": "buffer_write_string",
+					"calltype": 12,
+					"helpline": "buffer_write_string(id,string)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_data",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_read_data(id,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "buffer_write_data",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_write_data(id,string)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_hex",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_read_hex(id,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "buffer_write_hex",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_write_hex(id,string)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_read_base64",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_read_base64(id,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "buffer_write_base64",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_write_base64(id,string)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_copy",
+					"extname": "buffer_write_buffer",
+					"calltype": 12,
+					"helpline": "buffer_copy(to,from)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_copy_part",
+					"extname": "buffer_write_buffer_part",
+					"calltype": 12,
+					"helpline": "buffer_copy_part(to,from,pos,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "md5_begin",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "md5_begin()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "md5_end",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "md5_end()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "md5_read_file",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "md5_read_file(filename)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "md5_read_string",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "md5_read_string(string)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "md5_read_buffer",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "md5_read_buffer(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "md5_read_buffer_part",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "md5_read_buffer_part(id,pos,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "md5_result",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "md5_result()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 1
+				},
+				{
+					"name": "sha1_begin",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_begin()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "sha1_end",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_end()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "sha1_read_file",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_read_file(filename)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "sha1_read_string",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_read_string(string)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "sha1_read_buffer",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_read_buffer(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "sha1_read_buffer_part",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_read_buffer_part(id,pos,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "sha1_result",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_result()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 1
+				},
+				{
+					"name": "listeningsocket_create",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_create()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "listeningsocket_destroy",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_destroy(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listeningsocket_exists",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_exists(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listeningsocket_is_listening",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_is_listening(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listeningsocket_start_listening",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_start_listening(id,ipv6,port,local)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listeningsocket_stop_listening",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_stop_listening(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listeningsocket_can_accept",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_can_accept(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listeningsocket_accept",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listeningsocket_accept(id,socket_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_create",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_create()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "socket_destroy",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_destroy(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_exists",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_exists(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_get_state",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_get_state(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_reset",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_reset(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_connect",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_connect(id,address,port)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_update_read",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_update_read(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_update_write",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_update_write(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_shut_down",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_shut_down(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_get_peer_address",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_get_peer_address(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "socket_read_data",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_read_data(id,buffer_id,bytes)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_write_data",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_write_data(id,buffer_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_read_message",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_read_message(id,buffer_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_write_message",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_write_message(id,buffer_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_read_message_delimiter",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_read_message_delimiter(id,buffer_id,delimiter)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_write_message_delimiter",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_write_message_delimiter(id,buffer_id,delimiter)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_get_read_data_length",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_get_read_data_length(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_get_write_data_length",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_get_write_data_length(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_create",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_create()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_destroy",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_destroy(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_exists",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_exists(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_get_state",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_get_state(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_reset",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_reset(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_start",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_start(id,ipv6,port)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_set_destination",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_set_destination(id,address,port)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_receive",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_receive(id,buffer_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_send",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_send(id,buffer_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_get_last_address",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_get_last_address(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "udpsocket_get_last_port",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_get_last_port(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_get_max_message_size",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_get_max_message_size(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_create",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_create()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_destroy",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_destroy(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_exists",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_exists(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_get_state",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_state(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_set_request_header",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_set_request_header(id,name,value,replace)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1,
+						1,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_remove_request_header",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_remove_request_header(id,name)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_clear_request_headers",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_clear_request_headers(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_set_post_parameter",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_set_post_parameter(id,name,value)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_set_post_parameter_file",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_set_post_parameter_file(id,name,filename,buffer_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1,
+						1,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_remove_post_parameter",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_remove_post_parameter(id,name)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_clear_post_parameters",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_clear_post_parameters(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_reset",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_reset(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_connect",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_connect(id,url,post)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_update",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_update(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_get_status_code",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_status_code(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_get_response_header_count",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_response_header_count(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_get_response_header_name",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_response_header_name(id,index)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "httprequest_get_response_header_value",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_response_header_value(id,index)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "httprequest_find_response_header",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_find_response_header(id,name)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 1
+				},
+				{
+					"name": "httprequest_get_message_body",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_message_body(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "httprequest_get_message_body_length",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_message_body_length(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_get_message_body_buffer",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_get_message_body_buffer(id,buffer_id)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "httprequest_urlencode",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_urlencode(string,keepspecialchars)",
+					"hidden": false,
+					"argtypes": [
+						1,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "httprequest_urldecode",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "httprequest_urldecode(string)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 1
+				},
+				{
+					"name": "buffer_get_address",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_get_address(id,asrealpointer)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_get_address_string",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_get_address_string(id,ashexstring)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "udpsocket_get_ttl",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_get_ttl(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "udpsocket_set_ttl",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "udpsocket_set_ttl(id,ttl)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				}
+			],
+			"constants": [
+				{
+					"name": "tcp_notconnected",
+					"value": "0",
+					"hidden": false
+				},
+				{
+					"name": "tcp_connecting",
+					"value": "1",
+					"hidden": false
+				},
+				{
+					"name": "tcp_connected",
+					"value": "2",
+					"hidden": false
+				},
+				{
+					"name": "tcp_closed",
+					"value": "4",
+					"hidden": false
+				},
+				{
+					"name": "tcp_error",
+					"value": "5",
+					"hidden": false
+				},
+				{
+					"name": "udp_notstarted",
+					"value": "0",
+					"hidden": false
+				},
+				{
+					"name": "udp_started",
+					"value": "1",
+					"hidden": false
+				},
+				{
+					"name": "udp_error",
+					"value": "2",
+					"hidden": false
+				},
+				{
+					"name": "http_notconnected",
+					"value": "0",
+					"hidden": false
+				},
+				{
+					"name": "http_wait_statuscode",
+					"value": "1",
+					"hidden": false
+				},
+				{
+					"name": "http_wait_headers",
+					"value": "2",
+					"hidden": false
+				},
+				{
+					"name": "http_wait_messagebody",
+					"value": "3",
+					"hidden": false
+				},
+				{
+					"name": "http_closed",
+					"value": "4",
+					"hidden": false
+				},
+				{
+					"name": "http_error",
+					"value": "5",
+					"hidden": false
+				}
+			]
+		}
+	]
+}
