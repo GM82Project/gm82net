@@ -100,6 +100,13 @@ gmexport double buffer_set_pos(double id, double pos) {
 	return 1;
 }
 
+gmexport double buffer_set_size(double id, double len) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if(b == NULL) return 0;
+	b->SetLength(gm_cast<unsigned int>(len));
+	return 1;
+}
+
 gmexport double buffer_read_from_file(double id, const char* filename) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
