@@ -88,6 +88,10 @@ void Buffer::SetLength(unsigned int newlength) {
 		throw std::bad_alloc();
 	}
 	data = (char*)(temp);
+    //clean up new memory
+    if (newlength>length) {
+        memset(data+length,0,newlength-length);
+    }
 	length = newlength;
 	capacity = new_capacity;
 	if(pos > length) {
