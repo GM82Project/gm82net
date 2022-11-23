@@ -5,6 +5,7 @@ set(SRCS gm.cpp
 		 gm_listeningsocket.cpp
 		 gm_socket.cpp
 		 gm_udpsocket.cpp
+		 gm_pipe.cpp
 		 
 		 Buffer.cpp
 		 Hash.cpp

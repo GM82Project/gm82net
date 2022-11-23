@@ -667,6 +667,17 @@
 					"returntype": 2
 				},
 				{
+					"name": "buffer_make_pipe",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_make_pipe(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 1
+				},
+				{
 					"name": "httprequest_clear_post_parameters",
 					"extname": "",
 					"calltype": 12,
