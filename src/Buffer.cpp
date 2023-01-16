@@ -483,6 +483,7 @@ void Buffer::WriteBuffer(const Buffer* b) {
 		unsigned int p = length;
 		SetLength(length + len);
 		memcpy(data + p, b->data, len);
+        SetPos(length + len);
 	}
 }
 
@@ -493,5 +494,6 @@ void Buffer::WriteBufferPart(const Buffer* b, unsigned int _pos, unsigned int _l
 		unsigned int p = length;
 		SetLength(length + _len);
 		memcpy(data + p, b->data+_pos, _len);
+        SetPos(length + _len);
 	}
 }
