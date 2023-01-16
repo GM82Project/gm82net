@@ -3,7 +3,7 @@
 	"folder": "gm82",
 	"version": "1.21",
 	"author": "Maarten Baert, renex, nik and Floogle",
-	"date": "01/08/2022",
+	"date": "16/01/2023",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes buffer, networking, hash and cryptography functions.",
 	"helpfile": "",
@@ -211,6 +211,17 @@
 						2
 					],
 					"returntype": 2
+				},
+				{
+					"name": "buffer_make_pipe",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_make_pipe(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 1
 				},
 				{
 					"name": "buffer_rc4",
@@ -432,6 +443,18 @@
 					"extname": "buffer_append_to_file",
 					"calltype": 12,
 					"helpline": "buffer_save_append(id,filename)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_save_temp",
+					"extname": "buffer_write_to_temp_file",
+					"calltype": 12,
+					"helpline": "buffer_save_temp(id,filename)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -665,17 +688,6 @@
 						2
 					],
 					"returntype": 2
-				},
-				{
-					"name": "buffer_make_pipe",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "buffer_make_pipe(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 1
 				},
 				{
 					"name": "httprequest_clear_post_parameters",

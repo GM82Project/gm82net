@@ -122,7 +122,12 @@ gmexport double buffer_read_from_file_part(double id, const char* filename, doub
 gmexport double buffer_write_to_file(double id, const char* filename) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
-	return (b->WriteToFile(filename))? 1 : 0;
+	return (b->WriteToFile(filename,false))? 1 : 0;
+}
+gmexport double buffer_write_to_temp_file(double id, const char* filename) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if(b == NULL) return 0;
+	return (b->WriteToFile(filename,true))? 1 : 0;
 }
 
 gmexport double buffer_append_to_file(double id, const char* filename) {

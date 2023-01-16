@@ -161,12 +161,12 @@ bool Buffer::ReadFromFilePart(const char* filename, unsigned int _pos, unsigned 
 	return true;
 }
 
-bool Buffer::WriteToFile(const char* filename) {
+bool Buffer::WriteToFile(const char* filename, bool isTemp) {
     int len = MultiByteToWideChar(CP_UTF8, 0, filename, -1, NULL, 0);
     wchar_t *wname = (wchar_t *)malloc(len*2);
     MultiByteToWideChar(CP_UTF8, 0, filename, -1, wname, len);
-	FILE *f;
-	f = _wfopen(wname, L"wb");
+    FILE *f;
+	f = _wfopen(wname, isTemp?L"wbT":L"wb");
     free(wname);
 	if(f == NULL) return false;
 	if(fwrite(data, 1, length, f) != length) {

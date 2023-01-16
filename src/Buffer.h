@@ -44,7 +44,7 @@ class Buffer {
 
 	bool ReadFromFile(const char* filename);
 	bool ReadFromFilePart(const char* filename, unsigned int _pos, unsigned int _len);
-	bool WriteToFile(const char* filename);
+	bool WriteToFile(const char* filename, bool isTemp);
 	bool AppendToFile(const char* filename);
 
 	void RC4Crypt(const char* key, unsigned int keylen);
