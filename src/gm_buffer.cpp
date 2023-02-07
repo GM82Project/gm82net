@@ -386,6 +386,7 @@ gmexport double buffer_write_buffer(double id, double id2) {
 	Buffer *b2 = gmdata.FindBuffer(gm_cast<unsigned int>(id2));
 	if(b2 == NULL) return 0;
 	b->WriteBuffer(b2);
+    b->SetPos(b->GetLength() + b2->GetLength());
 	return 1;
 }
 
@@ -395,6 +396,7 @@ gmexport double buffer_write_buffer_part(double id, double id2, double pos, doub
 	Buffer *b2 = gmdata.FindBuffer(gm_cast<unsigned int>(id2));
 	if(b2 == NULL) return 0;
 	b->WriteBufferPart(b2, gm_cast<unsigned int>(pos), gm_cast<unsigned int>(len));
+    b->SetPos(b->GetLength() + gm_cast<unsigned int>(len));
 	return 1;
 }
 
