@@ -441,3 +441,24 @@ gmexport const char* buffer_get_address_string(double id, double ashexstring) {
 
 	return ptrstringbuf;
 }
+
+
+gmexport double buffer_peek(double id,double pos) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if(b == NULL) return 0;
+    unsigned int oldpos = b->GetPos();
+    b->SetPos(pos);
+    double ret = b->ReadType<uint8_t>();
+    b->SetPos(oldpos);
+	return ret;
+}
+
+gmexport double buffer_poke(double id,double pos,double byte) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if(b == NULL) return 0;
+    unsigned int oldpos = b->GetPos();
+    b->SetPos(pos);
+    b->WriteType<uint8_t>(gm_cast<uint8_t>(byte));
+    b->SetPos(oldpos);
+	return 1;
+}
