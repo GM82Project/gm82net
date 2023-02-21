@@ -2,8 +2,8 @@
 	"name": "Game Maker 8.2 Network",
 	"folder": "gm82",
 	"version": "1.3",
-	"author": "Maarten Baert, renex, nik and Floogle",
-	"date": "19/02/2023",
+	"author": "Maarten Baert, renex, Floogle and nik",
+	"date": "21/02/2023",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes buffer, networking, hash and cryptography functions.",
 	"helpfile": "",
@@ -1671,11 +1671,35 @@
 		},
 		{
 			"filename": "gm82net.gml",
-			"origname": "C:\\Stuff\\github\\gm82net\\src\\gm82net.gml",
+			"origname": "src\\gm82net.gml",
 			"kind": 2,
 			"init": "__gm82net_init",
 			"final": "",
 			"functions": [
+				{
+					"name": "d3d_model_load_g3z",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "d3d_model_load_g3z(model,filename)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "d3d_model_save_g3z",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "d3d_model_save_g3z(model,filename)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
 				{
 					"name": "__gm82net_init",
 					"extname": "",
