@@ -228,13 +228,17 @@ gmexport double buffer_read_uintv(double id) {
 gmexport double buffer_read_float32(double id) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
-	return b->ReadType<float>();
+    float data=b->ReadType<float>();
+    if (isnan(data) || isinf(data)) return 0;
+	return data;
 }
 
 gmexport double buffer_read_float64(double id) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
-	return b->ReadType<double>();
+    double data=b->ReadType<double>();
+    if (isnan(data) || isinf(data)) return 0;
+    return data;
 }
 
 gmexport double buffer_write_int8(double id, double value) {
