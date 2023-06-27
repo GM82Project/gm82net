@@ -24,6 +24,15 @@ endif()
 
 target_link_libraries(gm82net Ws2_32 "${PROJECT_SOURCE_DIR}/lib/${TARGET_ARCH}/zlibstatic.lib")
 
+set(UPX_PATH "" CACHE STRING "Path to upx.exe if applicable")
+if(NOT UPX_PATH STREQUAL "")
+	add_custom_command(
+		TARGET gm82net
+		POST_BUILD	
+		COMMAND ${UPX_PATH} --lzma ${CMAKE_BINARY_DIR}/src/$<CONFIG>/gm82net.dll
+	)
+endif()
+
 option(INSTALL_GEX "Install the generated .gex" OFF)
 option(NO_GEX "Omit building a .gex" OFF)
 
