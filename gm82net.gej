@@ -3,7 +3,7 @@
 	"folder": "gm82",
 	"version": "1.3",
 	"author": "Maarten Baert, renex, Floogle and nik",
-	"date": "26/06/2023",
+	"date": "28/06/2023",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes buffer, networking, hash and cryptography functions.",
 	"helpfile": "",
@@ -565,6 +565,33 @@
 					"helpline": "buffer_write_float(id,value)",
 					"hidden": false,
 					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_float2",
+					"extname": "buffer_write_float32x2",
+					"calltype": 12,
+					"helpline": "buffer_write_float2(id,val1,val2)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "buffer_write_float3",
+					"extname": "buffer_write_float32x3",
+					"calltype": 12,
+					"helpline": "buffer_write_float3(id,val1,val2,val3)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
 						2,
 						2
 					],

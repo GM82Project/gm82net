@@ -317,6 +317,21 @@ gmexport double buffer_write_float32(double id, double value) {
 	b->WriteType<float>(gm_cast<float>(value));
 	return 1;
 }
+gmexport double buffer_write_float32x2(double id, double val1, double val2) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if(b == NULL) return 0;
+	b->WriteType<float>(gm_cast<float>(val1));
+	b->WriteType<float>(gm_cast<float>(val2));
+	return 1;
+}
+gmexport double buffer_write_float32x3(double id, double val1, double val2, double val3) {
+	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if(b == NULL) return 0;
+	b->WriteType<float>(gm_cast<float>(val1));
+	b->WriteType<float>(gm_cast<float>(val2));
+	b->WriteType<float>(gm_cast<float>(val3));
+	return 1;
+}
 
 gmexport double buffer_write_float32x4(double id, double val1, double val2, double val3, double val4) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
