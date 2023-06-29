@@ -165,52 +165,44 @@ gmexport double buffer_zlib_uncompress(double id) {
 	return (b->ZLibUncompress())? 1 : 0;
 }
 
-gmexport double buffer_read_int8(double id) {
+template<typename T>
+static double buffer_read_type(double id) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return b->ReadType<int8_t>();
+	if (b == NULL) return 0.0;
+
+	return (double)b->ReadType<T>();
+}
+
+gmexport double buffer_read_int8(double id) {
+	return buffer_read_type<int8_t>(id);
 }
 
 gmexport double buffer_read_uint8(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return b->ReadType<uint8_t>();
+	return buffer_read_type<uint8_t>(id);
 }
 
 gmexport double buffer_read_int16(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return b->ReadType<int16_t>();
+	return buffer_read_type<int16_t>(id);
 }
 
 gmexport double buffer_read_uint16(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return b->ReadType<uint16_t>();
+	return buffer_read_type<uint16_t>(id);
 }
 
 gmexport double buffer_read_int32(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return b->ReadType<int32_t>();
+	return buffer_read_type<int32_t>(id);
 }
 
 gmexport double buffer_read_uint32(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return b->ReadType<uint32_t>();
+	return buffer_read_type<uint32_t>(id);
 }
 
 gmexport double buffer_read_int64(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return (double)(b->ReadType<int64_t>());
+	return buffer_read_type<int64_t>(id);
 }
 
 gmexport double buffer_read_uint64(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return (double)(b->ReadType<uint64_t>());
+	return buffer_read_type<uint64_t>(id);
 }
 
 gmexport double buffer_read_intv(double id) {
