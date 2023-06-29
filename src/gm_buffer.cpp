@@ -241,60 +241,52 @@ gmexport double buffer_read_float64(double id) {
     return data;
 }
 
-gmexport double buffer_write_int8(double id, double value) {
+template<typename T, size_t N>
+static double buffer_write_num_types(double id, const double (&vals)[N]) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<int8_t>(gm_cast<int8_t>(value));
-	return 1;
+	if (b == NULL) return 0.0;
+
+	for (size_t i = 0; i < N; ++i)
+		b->WriteType<T>(gm_cast<T>(vals[i]));
+
+	return 1.0;
+}
+
+template<typename T>
+static double buffer_write_type(double id, double value) {
+	return buffer_write_num_types<T>(id, {value});
+}
+
+gmexport double buffer_write_int8(double id, double value) {
+	return buffer_write_type<int8_t>(id, value);
 }
 
 gmexport double buffer_write_uint8(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<uint8_t>(gm_cast<uint8_t>(value));
-	return 1;
+	return buffer_write_type<uint8_t>(id, value);
 }
 
 gmexport double buffer_write_int16(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<int16_t>(gm_cast<int16_t>(value));
-	return 1;
+	return buffer_write_type<int16_t>(id, value);
 }
 
 gmexport double buffer_write_uint16(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<uint16_t>(gm_cast<uint16_t>(value));
-	return 1;
+	return buffer_write_type<uint16_t>(id, value);
 }
 
 gmexport double buffer_write_int32(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<int32_t>(gm_cast<int32_t>(value));
-	return 1;
+	return buffer_write_type<int32_t>(id, value);
 }
 
 gmexport double buffer_write_uint32(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<uint32_t>(gm_cast<uint32_t>(value));
-	return 1;
+	return buffer_write_type<uint32_t>(id, value);
 }
 
 gmexport double buffer_write_int64(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<int64_t>(gm_cast<int64_t>(value));
-	return 1;
+	return buffer_write_type<int64_t>(id, value);
 }
 
 gmexport double buffer_write_uint64(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<uint64_t>(gm_cast<uint64_t>(value));
-	return 1;
+	return buffer_write_type<uint64_t>(id, value);
 }
 
 gmexport double buffer_write_intv(double id, double value) {
@@ -312,59 +304,24 @@ gmexport double buffer_write_uintv(double id, double value) {
 }
 
 gmexport double buffer_write_float32(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<float>(gm_cast<float>(value));
-	return 1;
+	return buffer_write_type<float>(id, value);
 }
 gmexport double buffer_write_float32x2(double id, double val1, double val2) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<float>(gm_cast<float>(val1));
-	b->WriteType<float>(gm_cast<float>(val2));
-	return 1;
+	return buffer_write_num_types<float>(id, {val1, val2});
 }
 gmexport double buffer_write_float32x3(double id, double val1, double val2, double val3) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<float>(gm_cast<float>(val1));
-	b->WriteType<float>(gm_cast<float>(val2));
-	b->WriteType<float>(gm_cast<float>(val3));
-	return 1;
+	return buffer_write_num_types<float>(id, {val1, val2, val3});
 }
 
 gmexport double buffer_write_float32x4(double id, double val1, double val2, double val3, double val4) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<float>(gm_cast<float>(val1));
-	b->WriteType<float>(gm_cast<float>(val2));
-	b->WriteType<float>(gm_cast<float>(val3));
-	b->WriteType<float>(gm_cast<float>(val4));
-	return 1;
+	return buffer_write_num_types<float>(id, {val1, val2, val3, val4});
 }
 gmexport double buffer_write_float32x12(double id, double val1, double val2, double val3, double val4, double val5, double val6, double val7, double val8, double val9, double val10, double val11, double val12) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<float>(gm_cast<float>(val1));
-	b->WriteType<float>(gm_cast<float>(val2));
-	b->WriteType<float>(gm_cast<float>(val3));
-	b->WriteType<float>(gm_cast<float>(val4));
-	b->WriteType<float>(gm_cast<float>(val5));
-	b->WriteType<float>(gm_cast<float>(val6));
-	b->WriteType<float>(gm_cast<float>(val7));
-	b->WriteType<float>(gm_cast<float>(val8));
-	b->WriteType<float>(gm_cast<float>(val9));
-	b->WriteType<float>(gm_cast<float>(val10));
-	b->WriteType<float>(gm_cast<float>(val11));
-	b->WriteType<float>(gm_cast<float>(val12));
-	return 1;
+	return buffer_write_num_types<float>(id, {val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12});
 }
 
 gmexport double buffer_write_float64(double id, double value) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	b->WriteType<double>(gm_cast<double>(value));
-	return 1;
+	return buffer_write_type<double>(id, value);
 }
 
 gmexport const char* buffer_read_string(double id) {
