@@ -3,7 +3,7 @@
 	"folder": "gm82",
 	"version": "1.3",
 	"author": "Maarten Baert, renex, Floogle, nik, and Lovey01",
-	"date": "28/06/2023",
+	"date": "17/07/2023",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes buffer, networking, hash and cryptography functions.",
 	"helpfile": "",
@@ -571,6 +571,29 @@
 					"returntype": 2
 				},
 				{
+					"name": "buffer_write_float12",
+					"extname": "buffer_write_float32x12",
+					"calltype": 12,
+					"helpline": "buffer_write_float12(id,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2,
+						2,
+						2,
+						2,
+						2,
+						2,
+						2,
+						2,
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
 					"name": "buffer_write_float2",
 					"extname": "buffer_write_float32x2",
 					"calltype": 12,
@@ -673,18 +696,6 @@
 					"returntype": 2
 				},
 				{
-					"name": "buffer_write_int",
-					"extname": "buffer_write_intv",
-					"calltype": 12,
-					"helpline": "",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
 					"name": "buffer_write_string",
 					"extname": "buffer_write_string",
 					"calltype": 12,
@@ -737,18 +748,6 @@
 					"extname": "buffer_write_uint8",
 					"calltype": 12,
 					"helpline": "buffer_write_u8(id,value)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "buffer_write_uint",
-					"extname": "buffer_write_uintv",
-					"calltype": 12,
-					"helpline": "buffer_write_uint(id,value)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -1631,29 +1630,6 @@
 					"helpline": "udpsocket_start(id,ipv6,port)",
 					"hidden": false,
 					"argtypes": [
-						2,
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "buffer_write_float12",
-					"extname": "buffer_write_float32x12",
-					"calltype": 12,
-					"helpline": "buffer_write_float12(id,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2,
-						2,
-						2,
-						2,
-						2,
-						2,
-						2,
-						2,
-						2,
 						2,
 						2,
 						2
