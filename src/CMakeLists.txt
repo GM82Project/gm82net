@@ -24,7 +24,7 @@ endif()
 
 target_link_libraries(gm82net Ws2_32 "${PROJECT_SOURCE_DIR}/lib/${TARGET_ARCH}/zlibstatic.lib")
 
-set(UPX_PATH "" CACHE STRING "Path to upx.exe if applicable")
+set(UPX_PATH "upx" CACHE STRING "Path to upx.exe if applicable")
 if(NOT UPX_PATH STREQUAL "")
 	add_custom_command(
 		TARGET gm82net
