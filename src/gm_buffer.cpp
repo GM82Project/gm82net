@@ -341,7 +341,7 @@ gmexport const char* buffer_read_data(double id, double len) {
 gmexport double buffer_write_data(double id, const char* string) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
-	b->WriteData(string, strlen(string));
+	b->WriteDataGML(string, strlen(string));
 	return 1;
 }
 

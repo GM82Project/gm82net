@@ -429,6 +429,14 @@ std::string Buffer::ReadData(unsigned int bytes) {
 
 void Buffer::WriteData(const char* str, unsigned int len) {
 	if(len != 0) {
+		unsigned int p = length;
+		SetLength(length + len);
+		memcpy(data + p, str, len);
+	}
+}
+
+void Buffer::WriteDataGML(const char* str, unsigned int len) {
+	if(len != 0) {
 		if (pos + len > length) {
 			SetLength(pos + len);
 		}

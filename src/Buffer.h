@@ -62,6 +62,7 @@ class Buffer {
 	void WriteString(const char* str);
 	std::string ReadData(unsigned int bytes);
 	void WriteData(const char* str, unsigned int len);
+	void WriteDataGML(const char* str, unsigned int len);
 	std::string ReadHex(unsigned int bytes);
 	void WriteHex(const char* str, unsigned int len);
 	std::string ReadBase64(unsigned int bytes);
