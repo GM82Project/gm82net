@@ -1,2 +1,2 @@
 # gm82net
-Fork of Maarten Baert's HTTPDLL for Game Maker 8.1.
+Heavily modified version of Maarten Baert's HTTPDLL2 for Game Maker 8.2.
