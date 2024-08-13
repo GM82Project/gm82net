@@ -15,31 +15,19 @@ jobs:
     runs-on: windows-2019
 
     steps:
-    - uses: actions/checkout@v3
-
-    - uses: robinraju/release-downloader@v1.8
-      with:
-        repository: "upx/upx"
-        latest: true
-        fileName: "*-win64.zip"
-        tarBall: false
-        zipBall: false
-        extract: true
-
-    - name: Move UPX
-      run: mv upx-*-win64 upx
+    - uses: actions/checkout@v4
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory.
       # NOTE: windows-2019 is the last one that will support v141_xp
-      run: cmake -B ${{github.workspace}}/build -T v141_xp -A Win32 -DUPX_PATH:STRING="${{github.workspace}}/upx/upx.exe"
+      run: cmake -B ${{github.workspace}}/build -T v141_xp -A Win32
 
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config Release
     
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: gm82net
         path: gm82net.gex
