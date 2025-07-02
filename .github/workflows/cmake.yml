@@ -19,8 +19,7 @@ jobs:
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory.
-      # NOTE: windows-2019 is the last one that will support v141_xp
-      run: cmake -B ${{github.workspace}}/build -T v141_xp -A Win32
+      run: cmake -B ${{github.workspace}}/build -A Win32
 
     - name: Build
       # Build your program with the given configuration
