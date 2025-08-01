@@ -22,6 +22,9 @@
 #include "gm.h"
 
 gmexport double buffer_create() {
+    ///buffer_create()
+    //Creates and returns a buffer index.
+    
 	Buffer *b = NULL; // GCC is complaining for some reason ...
 	b = new Buffer();
 	try {
@@ -35,6 +38,10 @@ gmexport double buffer_create() {
 }
 
 gmexport double buffer_destroy(double id) {
+    ///buffer_destroy(id)
+    //id: buffer index
+    //Destroys a buffer.
+    
 	std::map<unsigned int, Buffer*>::iterator it = gmdata.buffers.find(gm_cast<unsigned int>(id));
 	if(it == gmdata.buffers.end()) {
 		return 0;
@@ -45,6 +52,10 @@ gmexport double buffer_destroy(double id) {
 }
 
 gmexport double buffer_exists(double id) {
+    ///buffer_exists(id)
+    //id: buffer index
+    //returns: whether the buffer exists.
+    
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	return (b == NULL)? 0 : 1;
 }
@@ -58,58 +69,98 @@ gmexport const char* buffer_to_string(double id) {
 */
 
 gmexport double buffer_get_pos(double id) {
+    ///buffer_get_pos(id)
+    //id: buffer index
+    //returns: current caret position in the buffer
+    
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	return b->GetPos();
 }
 
 gmexport double buffer_get_length(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	///buffer_get_length(id)
+    //id: buffer index
+    //returns: size of buffer in bytes
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	return b->GetLength();
 }
 
 gmexport double buffer_at_end(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	///buffer_at_end(id)
+    //id: buffer index
+    //returns: whether the buffer caret is at the end of the buffer
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	return (b->IsAtEnd())? 1 : 0;
 }
 
 gmexport double buffer_get_error(double id) {
+    ///buffer_get_error(id)
+    //id: buffer index
+    //returns: whether the buffer has been locked with an error
+    //Errors are usually caused by reading out of bounds.
+    
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	return (b->GetError())? 1 : 0;
 }
 
 gmexport double buffer_clear_error(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	///buffer_clear_error(id)
+    //id: buffer index
+    //Clears the error state of a buffer, allowing it to be used again.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	b->ClearError();
 	return 1;
 }
 
 gmexport double buffer_clear(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	///buffer_clear(id)
+    //id: buffer index
+    //Clears the buffer of all data and sets the caret at the start.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	b->Clear();
 	return 1;
 }
 
 gmexport double buffer_set_pos(double id, double pos) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	///buffer_set_pos(id,pos)
+    //id: buffer index
+    //pos: position to set
+    //Sets the buffer caret to the specified position for reading and writing.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	b->SetPos(gm_cast<unsigned int>(pos));
 	return 1;
 }
 
 gmexport double buffer_set_size(double id, double len) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	///buffer_set_size(id,size)
+    //id: buffer index
+    //size: new size
+    //Resizes the buffer to have a specific size.
+    //Normally, all buffers grow as they're written to, but this can be used to preallocate memory for an operation.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	b->SetLength(gm_cast<unsigned int>(len));
 	return 1;
 }
 
 gmexport double buffer_read_from_file(double id, const char* filename) {
+    ///buffer_load(id,filename)
+    //id: buffer index
+    //filename: file to load from
+    
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	return (b->ReadFromFile(filename))? 1 : 0;
