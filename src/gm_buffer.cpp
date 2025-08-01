@@ -160,6 +160,7 @@ gmexport double buffer_read_from_file(double id, const char* filename) {
     ///buffer_load(id,filename)
     //id: buffer index
     //filename: file to load from
+    //Loads the entire file into the buffer, resizing it to fit. Sets the caret to the start.
     
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;

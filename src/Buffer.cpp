@@ -118,6 +118,7 @@ bool Buffer::ReadFromFile(const char* filename) {
 			return false;
 		}
 		SetLength(size);
+		pos=0;
 		if(fread(data, 1, size, f) != size) {
 			Clear();
 			fclose(f);
