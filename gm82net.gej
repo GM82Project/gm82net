@@ -1,9 +1,9 @@
 {
 	"name": "Game Maker 8.2 Network",
 	"folder": "gm82",
-	"version": "1.3.1",
+	"version": "1.3.2",
 	"author": "Maarten Baert, renex, Floogle, nik, and Lovey01",
-	"date": "30/12/2024",
+	"date": "01/08/2025",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes buffer, networking, hash and cryptography functions.",
 	"helpfile": "",
@@ -510,17 +510,6 @@
 						2
 					],
 					"returntype": 2
-				},
-				{
-					"name": "buffer_to_string",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "buffer_to_string(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 1
 				},
 				{
 					"name": "buffer_write_base64",

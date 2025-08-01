@@ -49,11 +49,13 @@ gmexport double buffer_exists(double id) {
 	return (b == NULL)? 0 : 1;
 }
 
+/*
 gmexport const char* buffer_to_string(double id) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
 	return b->ToString();
 }
+*/
 
 gmexport double buffer_get_pos(double id) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
