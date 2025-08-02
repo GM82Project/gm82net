@@ -21,11 +21,7 @@
 
 #include "gm.h"
 
-gmexport double buffer_create() {
-    ///buffer_create()
-    //Creates and returns a buffer index.
-    //Unlike 39dll, there isn't a default buffer. You always need to explicitly create and destroy buffers.
-    
+gmexport double __gm82buf_buffer_create() {
     Buffer *b = NULL;
     b = new Buffer();
     try {
@@ -166,15 +162,12 @@ gmexport double buffer_read_from_file(double id, const char* filename) {
     //filename: file to load from
     //returns: buffer id
     //Loads the entire file into the buffer, resizing it to fit. Sets the caret to the start.
-    //If the supplied buffer does not exist, one is created and returned.
     
     Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
     if(b == NULL) {
-        id = buffer_create();
-        b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+        return 0;
     }
-    b->ReadFromFile(filename);
-    return id;
+    return (b->ReadFromFile(filename))?1:0;
 }
 
 gmexport double buffer_read_from_file_part(double id, const char* filename, double pos, double len) {
@@ -182,17 +175,14 @@ gmexport double buffer_read_from_file_part(double id, const char* filename, doub
     //id: buffer index
     //filename: file to load from
     //pos/len: part of the file to load
-    //returns: buffer id
+    //returns: whether the read was successful
     //Loads part of a file into a buffer, resizing it to fit. Sets the caret to the start.
-    //If the supplied buffer does not exist, one is created and returned.
     
     Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
     if(b == NULL) {
-        id = buffer_create();
-        b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+        return 0;
     }
-    b->ReadFromFilePart(filename, gm_cast<unsigned int>(pos), gm_cast<unsigned int>(len));
-    return id;
+    return (b->ReadFromFilePart(filename, gm_cast<unsigned int>(pos), gm_cast<unsigned int>(len)))?1:0;
 }
 
 gmexport double buffer_write_to_file(double id, const char* filename) {

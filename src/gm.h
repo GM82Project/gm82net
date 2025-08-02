@@ -27,7 +27,6 @@
 #include "Hash.h"
 #include "Buffer.h"
 #include "Socket.h"
-#include "HttpRequest.h"
 
 #include <limits>
 #include <cstring>
@@ -76,19 +75,17 @@ inline bool gm_cast<bool>(double d) {
 
 struct GMData {
 	
-	unsigned int idcounter_buffers, idcounter_listeningsockets, idcounter_sockets, idcounter_udpsockets, idcounter_httprequests;
+	unsigned int idcounter_buffers, idcounter_listeningsockets, idcounter_sockets, idcounter_udpsockets;
 	std::map<unsigned int, Buffer*> buffers;
 	std::map<unsigned int, ListeningSocket*> listeningsockets;
 	std::map<unsigned int, Socket*> sockets;
 	std::map<unsigned int, UDPSocket*> udpsockets;
-	std::map<unsigned int, HttpRequest*> httprequests;
 	
 	GMData() {
 		idcounter_buffers = 0;
 		idcounter_listeningsockets = 0;
 		idcounter_sockets = 0;
 		idcounter_udpsockets = 0;
-		idcounter_httprequests = 0;
 		InitSockets();
 	}
 	~GMData() {
@@ -102,9 +99,6 @@ struct GMData {
 			delete it->second;
 		}
 		for(std::map<unsigned int, UDPSocket*>::iterator it = udpsockets.begin(); it != udpsockets.end(); ++it) {
-			delete it->second;
-		}
-		for(std::map<unsigned int, HttpRequest*>::iterator it = httprequests.begin(); it != httprequests.end(); ++it) {
 			delete it->second;
 		}
 		CleanupSockets();
@@ -124,12 +118,7 @@ struct GMData {
 	inline UDPSocket* FindUDPSocket(unsigned int id) {
 		std::map<unsigned int, UDPSocket*>::iterator it = udpsockets.find(id);
 		return (it == udpsockets.end())? NULL : it->second;
-	}
-	inline HttpRequest* FindHttpRequest(unsigned int id) {
-		std::map<unsigned int, HttpRequest*>::iterator it = httprequests.find(id);
-		return (it == httprequests.end())? NULL : it->second;
-	}
-	
+	}	
 };
 
 extern GMData gmdata;

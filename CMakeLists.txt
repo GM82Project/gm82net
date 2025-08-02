@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(gm82net CXX)
+project(gm82buf CXX)
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
