@@ -3,7 +3,7 @@
 	"folder": "gm82",
 	"version": "1.3.2",
 	"author": "Maarten Baert, renex, Floogle, nik, and Lovey01",
-	"date": "01/08/2025",
+	"date": "02/08/2025",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes buffer, networking, hash and cryptography functions.",
 	"helpfile": "",
@@ -122,25 +122,12 @@
 					"name": "buffer_get_address",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "buffer_get_address(id,asrealpointer)",
+					"helpline": "buffer_get_address(id)",
 					"hidden": false,
 					"argtypes": [
-						2,
 						2
 					],
 					"returntype": 2
-				},
-				{
-					"name": "buffer_get_address_string",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "buffer_get_address_string(id,ashexstring)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 1
 				},
 				{
 					"name": "buffer_get_error",
@@ -239,7 +226,7 @@
 					"name": "buffer_poke",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "buffer_poke(buffer,pos,byte)",
+					"helpline": "buffer_poke(buffer,pos,value)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -379,7 +366,7 @@
 					"extname": "buffer_read_intv",
 					"calltype": 12,
 					"helpline": "",
-					"hidden": false,
+					"hidden": true,
 					"argtypes": [
 						2
 					],
@@ -444,8 +431,8 @@
 					"name": "buffer_read_uint",
 					"extname": "buffer_read_uintv",
 					"calltype": 12,
-					"helpline": "buffer_read_uint(id)",
-					"hidden": false,
+					"helpline": "",
+					"hidden": true,
 					"argtypes": [
 						2
 					],

@@ -449,24 +449,25 @@ gmexport double buffer_write_buffer_part(double id, double id2, double pos, doub
 	return 1;
 }
 
-gmexport double buffer_get_address(double id, double asrealpointer) {
+gmexport double buffer_get_address(double id/*, double asrealpointer*/) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if (b == NULL) return 0;
 
-	if (gm_cast<bool>(asrealpointer)) {
+	/*if (gm_cast<bool>(asrealpointer)) {
 		// realpointer aka packed pointer (safe)
 		static_assert((sizeof(double) >= sizeof(char*)), "realpointer size check fail.");
 		double vv = 0.0;
 		*reinterpret_cast<char**>(&vv) = b->GetData();
 		return vv;
 	}
-	else {
+	else {*/
 		// cast pointer to double (UNSAFE!)
 		// this is what window_handle() and get_function_address() in native GM do.
 		return (double)((uintptr_t)b->GetData());
-	}
+	//}
 }
 
+/*
 static char ptrstringbuf[32];
 
 gmexport const char* buffer_get_address_string(double id, double ashexstring) {
@@ -490,7 +491,7 @@ gmexport const char* buffer_get_address_string(double id, double ashexstring) {
 
 	return ptrstringbuf;
 }
-
+*/
 
 gmexport double buffer_peek(double id,double pos) {
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
