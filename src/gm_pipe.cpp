@@ -14,6 +14,12 @@
 // using GetFileAttributesW to make sure the file exists, and calling that function with a pipe
 // is undefined behaviour that breaks everything.
 gmexport const char* buffer_make_pipe(double id) {
+    ///buffer_make_pipe(id)
+    //id: buffer to use
+    //returns: pipe name
+    //Creates a single-use pipe using the buffer's data. Currently, this is only usable with d3d_model_load, due to some implementation details.
+    //This may be expandable in the future.
+    
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return "";
 	volatile bool can_exit = false;
