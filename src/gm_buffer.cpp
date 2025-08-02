@@ -160,17 +160,28 @@ gmexport double buffer_read_from_file(double id, const char* filename) {
     ///buffer_load(id,filename)
     //id: buffer index
     //filename: file to load from
+    //returns: buffer id
     //Loads the entire file into the buffer, resizing it to fit. Sets the caret to the start.
+    //If the supplied buffer does not exist, one is created and returned.
     
 	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return (b->ReadFromFile(filename))? 1 : 0;
+	if(b == NULL) {
+        id = buffer_create();
+        b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+    }
+	b->ReadFromFile(filename);
+    return id;
 }
 
 gmexport double buffer_read_from_file_part(double id, const char* filename, double pos, double len) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
-	if(b == NULL) return 0;
-	return (b->ReadFromFilePart(filename, gm_cast<unsigned int>(pos), gm_cast<unsigned int>(len)))? 1 : 0;
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+	if(b == NULL) {
+        id = buffer_create();
+        b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+    }
+	b->ReadFromFilePart(filename, gm_cast<unsigned int>(pos), gm_cast<unsigned int>(len));
+    return id;
 }
 
 gmexport double buffer_write_to_file(double id, const char* filename) {
