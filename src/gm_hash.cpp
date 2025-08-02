@@ -20,94 +20,124 @@
  */
 
 #include "gm.h"
-
 #include "StringConversion.h"
 
 MD5 gm_md5;
 SHA1 gm_sha1;
 
-gmexport double md5_begin() {
-	gm_md5.Begin();
-	return 1;
+gmexport const char* md5_file(const char* filename) {
+    ///md5_file(filename)
+    //filename: file to hash
+    //Returns the MD5 hash of the file contents.
+    
+    gm_md5.Begin();
+	gm_md5.ReadFile(filename);
+    gmreturnstring = BinToHex(gm_md5.Result(), 16);
+    gm_md5.End();
+	return gmreturnstring.c_str();
 }
 
-gmexport double md5_end() {
-	gm_md5.End();
-	return 1;
-}
-
-gmexport double md5_read_file(const char* filename) {
-	return (gm_md5.ReadFile(filename))? 1 : 0;
-}
-
-gmexport double md5_read_string(const char* string) {
+gmexport const char* md5_string(const char* string) {
+    ///md5_string(string)
+    //string: string to hash
+    //Returns the MD5 hash of the string.
+    
+    gm_md5.Begin();
 	gm_md5.ReadMem(string, strlen(string));
-	return 1;
+	gmreturnstring = BinToHex(gm_md5.Result(), 16);
+    gm_md5.End();
+	return gmreturnstring.c_str();
 }
 
-gmexport double md5_read_buffer(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+gmexport const char* md5_buffer(double id) {
+	///md5_buffer(buffer)
+    //buffer: buffer to hash
+    //Returns the MD5 hash of the buffer contents.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
+    gm_md5.Begin();
 	gm_md5.ReadMem(b->GetData(), b->GetLength());
-	return 1;
+	gmreturnstring = BinToHex(gm_md5.Result(), 16);
+    gm_md5.End();
+	return gmreturnstring.c_str();
 }
 
-gmexport double md5_read_buffer_part(double id, double pos, double len) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+gmexport const char* md5_buffer_part(double id, double pos, double len) {
+	///md5_buffer_part(buffer,pos,len)
+    //buffer: buffer to hash
+    //pos,len: part of buffer to hash
+    //Returns the MD5 hash of part of the buffer contents.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
+    gm_md5.Begin();
 	unsigned int l = b->GetLength();
 	unsigned int _pos = gm_cast<unsigned int>(pos);
 	unsigned int _len = gm_cast<unsigned int>(len);
 	if(_pos > l) _pos = l;
 	if(_len > l - _pos) _len = l - _pos;
 	gm_md5.ReadMem(b->GetData() + _pos, _len);
-	return 1;
-}
-
-gmexport const char* md5_result() {
 	gmreturnstring = BinToHex(gm_md5.Result(), 16);
+    gm_md5.End();
 	return gmreturnstring.c_str();
 }
 
-gmexport double sha1_begin() {
-	gm_sha1.Begin();
-	return 1;
+
+gmexport const char* sha1_file(const char* filename) {
+    ///sha1_file(filename)
+    //filename: file to hash
+    //Returns the SHA1 hash of the file contents.
+    
+    gm_sha1.Begin();
+	gm_sha1.ReadFile(filename);
+    gmreturnstring = BinToHex(gm_sha1.Result(), 20);
+    gm_sha1.End();
+	return gmreturnstring.c_str();
 }
 
-gmexport double sha1_end() {
-	gm_sha1.End();
-	return 1;
-}
-
-gmexport double sha1_read_file(const char* filename) {
-	return (gm_sha1.ReadFile(filename))? 1 : 0;
-}
-
-gmexport double sha1_read_string(const char* string) {
+gmexport const char* sha1_string(const char* string) {
+    ///sha1_string(string)
+    //string: string to hash
+    //Returns the SHA1 hash of the string.
+    
+    gm_sha1.Begin();
 	gm_sha1.ReadMem(string, strlen(string));
-	return 1;
+	gmreturnstring = BinToHex(gm_sha1.Result(), 20);
+    gm_sha1.End();
+	return gmreturnstring.c_str();
 }
 
-gmexport double sha1_read_buffer(double id) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+gmexport const char* sha1_buffer(double id) {
+	///sha1_buffer(buffer)
+    //buffer: buffer to hash
+    //Returns the SHA1 hash of the buffer contents.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
+    gm_sha1.Begin();
 	gm_sha1.ReadMem(b->GetData(), b->GetLength());
-	return 1;
+	gmreturnstring = BinToHex(gm_sha1.Result(), 20);
+    gm_sha1.End();
+	return gmreturnstring.c_str();
 }
 
-gmexport double sha1_read_buffer_part(double id, double pos, double len) {
-	Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
+gmexport const char* sha1_buffer_part(double id, double pos, double len) {
+	///sha1_buffer_part(buffer,pos,len)
+    //buffer: buffer to hash
+    //pos,len: part of buffer to hash
+    //Returns the SHA1 hash of part of the buffer contents.
+    
+    Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
 	if(b == NULL) return 0;
+    gm_sha1.Begin();
 	unsigned int l = b->GetLength();
 	unsigned int _pos = gm_cast<unsigned int>(pos);
 	unsigned int _len = gm_cast<unsigned int>(len);
 	if(_pos > l) _pos = l;
 	if(_len > l - _pos) _len = l - _pos;
 	gm_sha1.ReadMem(b->GetData() + _pos, _len);
-	return 1;
-}
-
-gmexport const char* sha1_result() {
 	gmreturnstring = BinToHex(gm_sha1.Result(), 20);
+    gm_sha1.End();
 	return gmreturnstring.c_str();
 }

@@ -813,149 +813,95 @@
 					"returntype": 2
 				},
 				{
-					"name": "md5_begin",
+					"name": "md5_buffer",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "md5_begin()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "md5_end",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "md5_end()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "md5_read_buffer",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "md5_read_buffer(id)",
+					"helpline": "md5_buffer(id)",
 					"hidden": false,
 					"argtypes": [
 						2
 					],
-					"returntype": 2
-				},
-				{
-					"name": "md5_read_buffer_part",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "md5_read_buffer_part(id,pos,len)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "md5_read_file",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "md5_read_file(filename)",
-					"hidden": false,
-					"argtypes": [
-						1
-					],
-					"returntype": 2
-				},
-				{
-					"name": "md5_read_string",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "md5_read_string(string)",
-					"hidden": false,
-					"argtypes": [
-						1
-					],
-					"returntype": 2
-				},
-				{
-					"name": "md5_result",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "md5_result()",
-					"hidden": false,
-					"argtypes": [],
 					"returntype": 1
 				},
 				{
-					"name": "sha1_begin",
+					"name": "md5_buffer_part",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "sha1_begin()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "sha1_end",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "sha1_end()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "sha1_read_buffer",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "sha1_read_buffer(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "sha1_read_buffer_part",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "sha1_read_buffer_part(id,pos,len)",
+					"helpline": "md5_buffer_part(id,pos,len)",
 					"hidden": false,
 					"argtypes": [
 						2,
 						2,
 						2
 					],
-					"returntype": 2
+					"returntype": 1
 				},
 				{
-					"name": "sha1_read_file",
+					"name": "md5_file",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "sha1_read_file(filename)",
+					"helpline": "md5_file(filename)",
 					"hidden": false,
 					"argtypes": [
 						1
 					],
-					"returntype": 2
+					"returntype": 1
 				},
 				{
-					"name": "sha1_read_string",
+					"name": "md5_string",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "sha1_read_string(string)",
+					"helpline": "md5_string(string)",
 					"hidden": false,
 					"argtypes": [
 						1
 					],
-					"returntype": 2
+					"returntype": 1
 				},
 				{
-					"name": "sha1_result",
+					"name": "sha1_buffer",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "sha1_result()",
+					"helpline": "sha1_buffer(id)",
 					"hidden": false,
-					"argtypes": [],
+					"argtypes": [
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "sha1_buffer_part",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_buffer_part(id,pos,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 1
+				},
+				{
+					"name": "sha1_file",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_file(filename)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 1
+				},
+				{
+					"name": "sha1_string",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "sha1_string(string)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
 					"returntype": 1
 				},
 				{
