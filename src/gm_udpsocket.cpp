@@ -103,7 +103,7 @@ gmexport double udpsocket_set_destination(double id, const char* address, double
     ///udpsocket_set_destination(id,address,port)
     //id: UDP socket index
     //address: address to send to
-    //port: port number to listen in
+    //port: port number to send to
     //Sets the destination. It is possible to change the destination as many times as you want.
     
     UDPSocket *s = gmdata.FindUDPSocket(gm_cast<unsigned int>(id));

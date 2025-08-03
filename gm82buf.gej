@@ -3,9 +3,9 @@
 	"folder": "gm82",
 	"version": "1.0",
 	"author": "Maarten Baert, renex, Floogle, nik, and Lovey01",
-	"date": "02/08/2025",
+	"date": "03/08/2025",
 	"license": "Free to use, also for commercial games.",
-	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes memory management, sockets and data hashing functions.",
+	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes functions for memory management, sockets and data hashing functions.",
 	"helpfile": "",
 	"hidden": false,
 	"dependencies": [],
@@ -883,6 +883,17 @@
 					"returntype": 1
 				},
 				{
+					"name": "socket_close",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_close(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
 					"name": "socket_connect",
 					"extname": "",
 					"calltype": 12,
@@ -938,10 +949,21 @@
 					"returntype": 1
 				},
 				{
-					"name": "socket_get_read_data_length",
+					"name": "socket_get_receiving_size",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_get_read_data_length(id)",
+					"helpline": "socket_get_receiving_size(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_get_sending_size",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_get_sending_size(id)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -960,21 +982,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "socket_get_write_data_length",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "socket_get_write_data_length(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
 					"name": "socket_read_data",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_read_data(id,buffer_id,bytes)",
+					"helpline": "socket_read_data(id,buffer,length)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -987,7 +998,7 @@
 					"name": "socket_read_message",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_read_message(id,buffer_id)",
+					"helpline": "socket_read_message(id,buffer)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -999,12 +1010,23 @@
 					"name": "socket_read_message_delimiter",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_read_message_delimiter(id,buffer_id,delimiter)",
+					"helpline": "socket_read_message_delimiter(id,buffer,delimiter)",
 					"hidden": false,
 					"argtypes": [
 						2,
 						2,
 						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "socket_receive",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "socket_receive(id)",
+					"hidden": false,
+					"argtypes": [
+						2
 					],
 					"returntype": 2
 				},
@@ -1020,32 +1042,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "socket_shut_down",
+					"name": "socket_send",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_shut_down(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "socket_update_read",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "socket_update_read(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "socket_update_write",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "socket_update_write(id)",
+					"helpline": "socket_send(id)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -1056,7 +1056,7 @@
 					"name": "socket_write_data",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_write_data(id,buffer_id)",
+					"helpline": "socket_write_data(id,buffer)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -1068,7 +1068,7 @@
 					"name": "socket_write_message",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_write_message(id,buffer_id)",
+					"helpline": "socket_write_message(id,buffer)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -1080,7 +1080,7 @@
 					"name": "socket_write_message_delimiter",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "socket_write_message_delimiter(id,buffer_id,delimiter)",
+					"helpline": "socket_write_message_delimiter(id,buffer,delimiter)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -1260,7 +1260,7 @@
 			],
 			"constants": [
 				{
-					"name": "tcp_notconnected",
+					"name": "tcp_offline",
 					"value": "0",
 					"hidden": false
 				},
