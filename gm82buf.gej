@@ -353,17 +353,6 @@
 					"returntype": 2
 				},
 				{
-					"name": "buffer_read_int",
-					"extname": "buffer_read_intv",
-					"calltype": 12,
-					"helpline": "",
-					"hidden": true,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
 					"name": "buffer_read_string",
 					"extname": "buffer_read_string",
 					"calltype": 12,
@@ -413,17 +402,6 @@
 					"calltype": 12,
 					"helpline": "buffer_read_u8(id)",
 					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "buffer_read_uint",
-					"extname": "buffer_read_uintv",
-					"calltype": 12,
-					"helpline": "",
-					"hidden": true,
 					"argtypes": [
 						2
 					],
