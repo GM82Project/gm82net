@@ -723,10 +723,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "listeningsocket_accept",
+					"name": "listener_accept",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listeningsocket_accept(id,socket_id)",
+					"helpline": "listener_accept(id,socket_id)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -735,10 +735,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "listeningsocket_can_accept",
+					"name": "listener_active",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listeningsocket_can_accept(id)",
+					"helpline": "listener_active(id)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -746,19 +746,30 @@
 					"returntype": 2
 				},
 				{
-					"name": "listeningsocket_create",
+					"name": "listener_can_accept",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listeningsocket_create()",
+					"helpline": "listener_can_accept(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listener_create",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listener_create()",
 					"hidden": false,
 					"argtypes": [],
 					"returntype": 2
 				},
 				{
-					"name": "listeningsocket_destroy",
+					"name": "listener_destroy",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listeningsocket_destroy(id)",
+					"helpline": "listener_destroy(id)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -766,10 +777,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "listeningsocket_exists",
+					"name": "listener_exists",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listeningsocket_exists(id)",
+					"helpline": "listener_exists(id)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -777,21 +788,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "listeningsocket_is_listening",
+					"name": "listener_start",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listeningsocket_is_listening(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "listeningsocket_start_listening",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "listeningsocket_start_listening(id,ipv6,port,local)",
+					"helpline": "listener_start(id,ipv6,port,local)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -802,10 +802,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "listeningsocket_stop_listening",
+					"name": "listener_stop",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listeningsocket_stop_listening(id)",
+					"helpline": "listener_stop(id)",
 					"hidden": false,
 					"argtypes": [
 						2

@@ -21,8 +21,12 @@
 
 #include "gm.h"
 
-gmexport double listeningsocket_create() {
-	ListeningSocket *ls = NULL; // GCC is complaining for some reason ...
+gmexport double listener_create() {
+    ///listener_create()
+    //Creates and returns a new listener.
+    //Listeners react to incoming connections, and are needed to connect sockets.
+    
+	ListeningSocket *ls = NULL;
 	ls = new ListeningSocket();
 	try {
 		gmdata.listeningsockets.insert(std::pair<unsigned int, ListeningSocket*>(++gmdata.idcounter_listeningsockets, ls));
@@ -34,7 +38,11 @@ gmexport double listeningsocket_create() {
 	return gmdata.idcounter_listeningsockets;
 }
 
-gmexport double listeningsocket_destroy(double id) {
+gmexport double listener_destroy(double id) {
+    ///listener_destroy(id)
+    //id: listener index
+    //Destroys a listener.
+    
 	std::map<unsigned int, ListeningSocket*>::iterator it = gmdata.listeningsockets.find(gm_cast<unsigned int>(id));
 	if(it == gmdata.listeningsockets.end()) {
 		return 0;
@@ -44,38 +52,66 @@ gmexport double listeningsocket_destroy(double id) {
 	return 1;
 }
 
-gmexport double listeningsocket_exists(double id) {
+gmexport double listener_exists(double id) {
+    ///listener_exists(id)
+    //id: listener index
+    //Returns whether the listener with id exists.
+    
 	ListeningSocket *ls = gmdata.FindListeningSocket(gm_cast<unsigned int>(id));
 	return (ls == NULL)? 0 : 1;
 }
 
-gmexport double listeningsocket_is_listening(double id) {
+gmexport double listener_active(double id) {
+    ///listener_active(id)
+    //id: listener index
+    //Returns whether the listener with id is listening to incoming connections.
+    
 	ListeningSocket *ls = gmdata.FindListeningSocket(gm_cast<unsigned int>(id));
 	if(ls == NULL) return 0;
 	return (ls->IsListening())? 1 : 0;
 }
 
-gmexport double listeningsocket_start_listening(double id, double ipv6, double port, double local) {
+gmexport double listener_start(double id, double ipv6, double port, double local) {
+    ///listener_start(id)
+    //id: listener index
+    //ipv6: whether to use ipv6, or default to ipv4
+    //port: port number to listen in
+    //local: whether to skip firewall warnings and expect only connections from this computer
+    //Starts listening for incoming connections from other clients.
+    
 	ListeningSocket *ls = gmdata.FindListeningSocket(gm_cast<unsigned int>(id));
 	if(ls == NULL) return 0;
 	ls->StartListening(gm_cast<bool>(ipv6), gm_cast<unsigned int>(port), gm_cast<bool>(local));
 	return 1;
 }
 
-gmexport double listeningsocket_stop_listening(double id) {
+gmexport double listener_stop(double id) {
+    ///listener_stop(id)
+    //id: listener index
+    //Stops listening for incoming connections.
+    
 	ListeningSocket *ls = gmdata.FindListeningSocket(gm_cast<unsigned int>(id));
 	if(ls == NULL) return 0;
 	ls->StopListening();
 	return 1;
 }
 
-gmexport double listeningsocket_can_accept(double id) {
+gmexport double listener_can_accept(double id) {
+    ///listener_can_accept(id)
+    //id: listener index
+    //Returns whether a connection attempt is underway.
+    //Use listener_accept() to accept a connection.    
+	
 	ListeningSocket *ls = gmdata.FindListeningSocket(gm_cast<unsigned int>(id));
 	if(ls == NULL) return 0;
 	return (ls->CanAccept())? 1 : 0;
 }
 
-gmexport double listeningsocket_accept(double id, double socket_id) {
+gmexport double listener_accept(double id, double socket_id) {    
+    ///listener_accept(id,socket)
+    //id: listener index
+    //Connects an incoming client to a socket, completing the connection.
+	
 	ListeningSocket *ls = gmdata.FindListeningSocket(gm_cast<unsigned int>(id));
 	if(ls == NULL) return 0;
 	Socket *s = gmdata.FindSocket(gm_cast<unsigned int>(socket_id));
