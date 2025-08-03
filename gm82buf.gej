@@ -713,10 +713,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "listener_active",
+					"name": "listener_is_active",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listener_active(id)",
+					"helpline": "listener_is_active(id)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -724,10 +724,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "listener_can_accept",
+					"name": "listener_pending",
 					"extname": "",
 					"calltype": 12,
-					"helpline": "listener_can_accept(id)",
+					"helpline": "listener_pending(id)",
 					"hidden": false,
 					"argtypes": [
 						2

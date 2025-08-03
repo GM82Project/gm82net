@@ -61,8 +61,8 @@ gmexport double listener_exists(double id) {
     return (ls == NULL)? 0 : 1;
 }
 
-gmexport double listener_active(double id) {
-    ///listener_active(id)
+gmexport double listener_is_active(double id) {
+    ///listener_is_active(id)
     //id: listener index
     //Returns whether the listener with id is listening to incoming connections.
     
@@ -96,11 +96,11 @@ gmexport double listener_stop(double id) {
     return 1;
 }
 
-gmexport double listener_can_accept(double id) {
-    ///listener_can_accept(id)
+gmexport double listener_pending(double id) {
+    ///listener_pending(id)
     //id: listener index
-    //Returns whether a connection attempt is underway.
-    //Use listener_accept() to accept a connection.    
+    //Returns whether a connection attempt is pending.
+    //Use listener_accept() to accept a connection.
     
     ListeningSocket *ls = gmdata.FindListeningSocket(gm_cast<unsigned int>(id));
     if(ls == NULL) return 0;
