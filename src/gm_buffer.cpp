@@ -349,6 +349,7 @@ gmexport double buffer_read_uint64(double id) {
     return buffer_read_type<uint64_t>(id);
 }
 
+/*
 gmexport double buffer_read_intv(double id) {
     Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
     if(b == NULL) return 0;
@@ -360,6 +361,7 @@ gmexport double buffer_read_uintv(double id) {
     if(b == NULL) return 0;
     return b->ReadUIntV();
 }
+*/
 
 gmexport double buffer_read_float32(double id) {
     ///buffer_read_float(id)
@@ -479,6 +481,7 @@ gmexport double buffer_write_uint64(double id, double value) {
     
     return buffer_write_type<uint64_t>(id, value);
 }
+
 /*
 gmexport double buffer_write_intv(double id, double value) {
     Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
@@ -494,6 +497,7 @@ gmexport double buffer_write_uintv(double id, double value) {
     return 1;
 }
 */
+
 gmexport double buffer_write_float32(double id, double value) {
     ///buffer_write_double(id,value)
     //id: buffer index
