@@ -3,7 +3,7 @@
 	"folder": "gm82",
 	"version": "1.0",
 	"author": "Maarten Baert, renex, Floogle, nik, and Lovey01",
-	"date": "03/08/2025",
+	"date": "05/08/2025",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package includes functions for memory management, sockets and data hashing functions.",
 	"helpfile": "",
@@ -77,6 +77,18 @@
 					"returntype": 2
 				},
 				{
+					"name": "buffer_decode_base64",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_decode_base64(id,string)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						1
+					],
+					"returntype": 2
+				},
+				{
 					"name": "buffer_deflate",
 					"extname": "buffer_zlib_compress",
 					"calltype": 12,
@@ -97,6 +109,18 @@
 						2
 					],
 					"returntype": 2
+				},
+				{
+					"name": "buffer_encode_base64",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "buffer_encode_base64(id,len)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 1
 				},
 				{
 					"name": "buffer_exists",
@@ -249,18 +273,6 @@
 						2
 					],
 					"returntype": 2
-				},
-				{
-					"name": "buffer_read_base64",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "buffer_read_base64(id,len)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 1
 				},
 				{
 					"name": "buffer_read_data",
@@ -464,18 +476,6 @@
 					"argtypes": [
 						2,
 						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "buffer_write_base64",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "buffer_write_base64(id,string)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						1
 					],
 					"returntype": 2
 				},
@@ -713,28 +713,6 @@
 					"returntype": 2
 				},
 				{
-					"name": "listener_is_active",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "listener_is_active(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "listener_pending",
-					"extname": "",
-					"calltype": 12,
-					"helpline": "listener_pending(id)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
 					"name": "listener_create",
 					"extname": "",
 					"calltype": 12,
@@ -759,6 +737,28 @@
 					"extname": "",
 					"calltype": 12,
 					"helpline": "listener_exists(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listener_is_active",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listener_is_active(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "listener_pending",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "listener_pending(id)",
 					"hidden": false,
 					"argtypes": [
 						2

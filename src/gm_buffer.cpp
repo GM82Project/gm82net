@@ -636,13 +636,12 @@ gmexport double buffer_write_hex(double id, const char* string) {
     return 1;
 }
 
-gmexport const char* buffer_read_base64(double id, double len) {
-    ///buffer_read_base64(id,len)
+gmexport const char* buffer_encode_base64(double id, double len) {
+    ///buffer_encode_base64(id,len)
     //id: buffer index
-    //len: length in bytes
+    //len: length in bytes to encode
     //returns: string
-    //Reads an amount of base64 data as a string from the buffer.
-    //This will decode the base64 data. For example, "Y2F0" becomes "cat".
+    //This will encode the buffer into its base64 representation. For example, "cat" becomes "Y2F0".
     
     Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
     if(b == NULL) return "";
@@ -651,12 +650,11 @@ gmexport const char* buffer_read_base64(double id, double len) {
     return gmreturnstring.c_str();
 }
 
-gmexport double buffer_write_base64(double id, const char* string) {
-    ///buffer_write_base64(id,string)
+gmexport double buffer_decode_base64(double id, const char* string) {
+    ///buffer_decode_base64(id,string)
     //id: buffer index
-    //string: string to write
-    //Writes a string as an encoded base64 string to the buffer.
-    //This will encode the string into its base64 representation. For example, "cat" becomes "Y2F0".
+    //string: base64 string to decode
+    //This will decode the base64 data into the buffer. For example, "Y2F0" becomes "cat".
     
     Buffer *b = gmdata.FindBuffer(gm_cast<unsigned int>(id));
     if(b == NULL) return 0;
