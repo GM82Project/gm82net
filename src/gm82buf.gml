@@ -1,6 +1,5 @@
 #define __gm82buf_init
-    globalvar __gm82buf_version;
-    __gm82buf_version=100
+    globalvar gm82buf_version;gm82buf_version=100
 
 
 #define buffer_create
